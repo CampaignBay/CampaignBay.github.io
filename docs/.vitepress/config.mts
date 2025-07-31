@@ -74,7 +74,7 @@ export default defineConfig({
 
     socialLinks: [
       // Make sure this link points to your actual GitHub repository
-      { icon: 'github', link: 'https://github.com/your-username/campaignbay' }
+      { icon: 'github', link: 'https://campaignbay.github.io/' }
     ],
 
     footer: {

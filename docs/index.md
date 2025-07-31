@@ -11,7 +11,7 @@ hero:
       link: /getting-started/installation
     - theme: alt
       text: View Campaigns on GitHub
-      link: # (Link to your GitHub repo here)
+      link: https://campaignbay.github.io/
 
 features:
   - title: Scheduled Campaigns

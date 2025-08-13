@@ -35,25 +35,23 @@ export default defineConfig({
         collapsed: false, // Keep this section open by default
         items: [
           { text: 'Installation', link: '/getting-started/installation' },
-          { text: 'Global Settings', link: '/getting-started/settings' },
+          { text: 'First Campaign', link: '/getting-started/first-campaign' },
         ]
       },
       {
-        text: 'Campaign Guides',
+        text: 'User Guides',
         collapsed: false,
         items: [
-          { text: 'Introduction', link: '/campaigns/introduction' },
-          { text: 'Scheduled Discounts', link: '/campaigns/scheduled-discounts' },
-          { text: 'Earlybird Discounts', link: '/campaigns/earlybird-discounts' },
-          { text: 'Quantity Based Discounts', link: '/campaigns/quantity-discounts' },
-          { text: 'BOGO (Buy X, Get Y)', link: '/campaigns/bogo-discounts' },
+          { text: 'Dashboard Overview', link: '/guides/dashboard-overview' },
+          { text: 'All Campaign Types', link: '/guides/all-campaign-types' },
+          { text: 'Managing Campaigns', link: '/guides/managing-campaigns' },
         ]
       },
       {
-        text: 'Advanced Topics',
+        text: 'Reference',
         collapsed: false,
         items: [
-          { text: 'Stacking & Priority', link: '/advanced/stacking-and-priority' },
+          { text: 'Settings Configuration', link: '/reference/settings' },
         ]
       },
       // You can uncomment these sections later when you write the corresponding .md files

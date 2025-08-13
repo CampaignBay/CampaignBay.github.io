@@ -7,7 +7,7 @@ export default defineConfig({
   
   // Enhanced head configuration
   head: [
-    ['link', { rel: 'icon', href: '/images/dash_icon_campaign_bay_dark.svg' }],
+    ['link', { rel: 'icon', href: './images/logo-2.svg' }],
     ['meta', { name: 'theme-color', content: '#3a86ff' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }]
   ],
@@ -15,7 +15,7 @@ export default defineConfig({
   // Enhanced theme configuration
   themeConfig: {
     // Logo configuration
-    logo: '/images/dash_icon_campaign_bay_dark.svg',
+    logo: './images/logo-2.svg',
     
     // Enhanced search
     search: {

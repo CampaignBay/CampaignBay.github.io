@@ -6,7 +6,7 @@ hero:
   text: "Advanced Discount Campaigns for WooCommerce"
   tagline: Supercharge your store with powerful, automated discounts that drive urgency and boost sales. Create compelling promotions that convert visitors into customers.
   image:
-    src: /images/logo-2.svg
+    src: ./images/logo-2.svg
     alt: CampaignBay Logo
   actions:
     - theme: brand

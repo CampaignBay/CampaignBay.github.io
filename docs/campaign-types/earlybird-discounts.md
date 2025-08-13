@@ -18,7 +18,7 @@ Unlike a Quantity Discount, which is based on the number of items in a single pe
 
 From the "Add Campaign" screen, select **"EarlyBird Discount"** from the "SELECT DISCOUNT TYPE" dropdown.
 
-![A screenshot of the "Add Campaign" screen with the "EarlyBird Discount" option highlighted in the dropdown.](./../images/earlybird-01-tiers.png)
+<!-- ![A screenshot of the "Add Campaign" screen with the "EarlyBird Discount" option highlighted in the dropdown.](./../images/earlybird-01-tiers.png) -->
 
 ### 2. Configure Common Fields
 
@@ -60,7 +60,7 @@ The plugin automatically tracks the number of successful orders that have used t
 
 To maximize urgency, the Early Bird campaign can display a notice on the product page showing how many discounts are left, or a countdown. This clearly communicates the scarcity of the offer to potential buyers.
 
-![A screenshot of a single product page showing a notice like "Hurry! Only 25 spots left to get 25% off!".](./../images/fields-01-title.png)
+<!-- ![A screenshot of a single product page showing a notice like "Hurry! Only 25 spots left to get 25% off!".](./../images/fields-01-title.png) -->
 
 ## What's Next?
 

@@ -16,7 +16,7 @@ Quantity-based discounts are a powerful way to incentivize customers to buy in b
 
 From the "Add Campaign" screen, select **"Quantity Based Discount"** from the "SELECT DISCOUNT TYPE" dropdown.
 
-![A screenshot of the "Add Campaign" screen with the "Quantity Based Discount" option highlighted in the dropdown.](./../images/quantity-01-tiers.png)
+<!-- ![A screenshot of the "Add Campaign" screen with the "Quantity Based Discount" option highlighted in the dropdown.](./../images/quantity-01-tiers.png) -->
 
 ### 2. Configure Common Fields
 
@@ -52,7 +52,7 @@ Your tier configuration would look like this:
 
 If the option is enabled in your settings, a table summarizing the tiered pricing will be displayed directly on the product page. This clearly communicates the value of buying more to the customer before they even add the item to their cart.
 
-![A screenshot of a single product page showing the pricing table for the quantity discount tiers.](./../images/fields-01-title.png)
+<!-- ![A screenshot of a single product page showing the pricing table for the quantity discount tiers.](./../images/fields-01-title.png) -->
 
 ### 5. How it Works in the Cart
 
@@ -61,11 +61,11 @@ The plugin automatically detects the quantity of the item in the cart and applie
 -   If a customer has **7** of the item in their cart, they qualify for Tier 1. The price for each item will be updated to **$17.00** ($20 - $3).
 -   If the customer then updates the quantity to **11**, the cart will refresh, and they will now qualify for Tier 2. The price for each item will be updated to **$15.00** ($20 - $5).
 
-![A screenshot of the WooCommerce cart. It shows an item with a quantity of 7, and the per-item price is correctly discounted with a strikethrough.](./../images/fields-02-target.png)
+<!-- ![A screenshot of the WooCommerce cart. It shows an item with a quantity of 7, and the per-item price is correctly discounted with a strikethrough.](./../images/fields-02-target.png) -->
 
 Furthermore, if the "Next Discount" notice is enabled in your settings, a helpful message will appear directly under the product, encouraging the customer to reach the next discount tier.
 
-![A close-up screenshot of a cart item, highlighting the "Add 3 more to get $5.00 off!" notice.](./../images/fields-03-schedule.png)
+<!-- ![A close-up screenshot of a cart item, highlighting the "Add 3 more to get $5.00 off!" notice.](./../images/fields-03-schedule.png) -->
 
 ## What's Next?
 

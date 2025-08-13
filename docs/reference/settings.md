@@ -51,7 +51,7 @@ This tab controls how discounts are displayed on your **single product** and **s
 
 This tab controls how discounts and notices behave within the WooCommerce **cart page**.
 
-![A screenshot of the "Cart Settings" tab.](./../images/settings-02-product.png)
+![A screenshot of the "Cart Settings" tab.](./../images/settings-03-cart.png)
 
 -   **Allow Stacking with WooCommerce Coupons:** This is a critical setting for your promotion strategy.
     -   If **enabled**, customers can use a standard WooCommerce coupon code *in addition* to an automatic campaign discount that is already active in their cart.

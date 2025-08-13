@@ -1,25 +1,8 @@
-COMPLETE LIST OF IMAGE NAMES REFERENCED IN CAMPAIGNBAY DOCUMENTATION
-================================================================
 
-MAIN INDEX (docs/index.md)
---------------------------
-logo-2.svg (used in hero section)
-
-GETTING STARTED - INSTALLATION (docs/getting-started/installation.md)
---------------------------------------------------------------------
 install-01-upload-button.png
 install-02-install-now.png
-install-03-activate.png
+install-03-activate.png => menu
 
-GETTING STARTED - DASHBOARD OVERVIEW (docs/getting-started/dashboard-overview.md)
--------------------------------------------------------------------------------
-dashboard-01-full-view.png
-dashboard-02-kpis.png
-dashboard-03-charts.png
-dashboard-04-actionable-widgets.png
-
-CAMPAIGN TYPES - FIRST CAMPAIGN SCHEDULED (docs/campaign-types/first-campaign-scheduled.md)
------------------------------------------------------------------------------------------
 first-campaign-01-menu.png
 first-campaign-02-type.png
 first-campaign-03-title.png
@@ -29,47 +12,19 @@ first-campaign-06-schedule.png
 first-campaign-07-status.png
 first-campaign-07-save.png
 first-campaign-08-verify.png
-fields-01-title.png (used as substitute for missing frontend verification image)
+fields-01-title.png 
 
-CAMPAIGN TYPES - EARLY BIRD DISCOUNTS (docs/campaign-types/earlybird-discounts.md)
---------------------------------------------------------------------------------
-earlybird-01-tiers.png (used twice - for type selection and tiers configuration)
-fields-01-title.png (used as substitute for missing product page image)
+earlybird-01-tiers.png 
+fields-01-title.png
+quantity-01-tiers.png 
+fields-01-title.png 
+fields-02-target.png 
+fields-03-schedule.png 
 
-CAMPAIGN TYPES - QUANTITY DISCOUNTS (docs/campaign-types/quantity-discounts.md)
------------------------------------------------------------------------------
-quantity-01-tiers.png (used twice - for type selection and tiers configuration)
-fields-01-title.png (used as substitute for missing product page image)
-fields-02-target.png (used as substitute for missing cart view image)
-fields-03-schedule.png (used as substitute for missing cart notice image)
-
-MANAGING CAMPAIGNS - ALL CAMPAIGNS SCREEN (docs/managing-campaigns/all-campaigns-screen.md)
------------------------------------------------------------------------------------------
 managing-01-full-view.png
 managing-02-filters.png
 managing-03-bulk-actions.png
 
-REFERENCE - SETTINGS (docs/reference/settings.md)
-------------------------------------------------
 settings-01-global.png
-settings-02-product.png (used twice - for both Product Settings and Cart Settings tabs)
+settings-02-product.png 
 
-================================================================
-
-SUMMARY
--------
-Total unique image references: 32
-- Actual existing images used: 25
-- Substitute images used: 7 (using available images like fields-01-title.png, fields-02-target.png, fields-03-schedule.png)
-
-IMAGE CATEGORIES:
-- Installation/Setup: 3 images
-- Dashboard: 4 images  
-- Campaign Creation: 9 images
-- Campaign Types: 6 images (with 3 substitutes)
-- Management: 3 images
-- Settings: 2 images
-- Logo: 1 image
-- Substitute/Generic: 4 images
-
-All image references now point to actual existing files in the docs/images/ directory, ensuring the documentation displays correctly without broken links. 

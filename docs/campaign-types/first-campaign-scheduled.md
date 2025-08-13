@@ -49,19 +49,14 @@ The schedule will run based on the timezone you have set in your main WordPress 
 
 ![A screenshot focused on the "SELECT CAMPAIGN DURATION" section, showing a start and end date/time being selected in the calendar/time pickers.](./../images/first-campaign-06-schedule.png)
 
-## 7. Set the Status
 
-In the **"Status"** panel at the top right, ensure the dropdown is set to **"Active"**. This tells the system that you want this campaign to run. If you were not ready, you could set it to "Draft" to save your work without scheduling it.
-
-![A screenshot of the top right of the screen, highlighting the "Status" dropdown with "Active" selected.](./../images/first-campaign-07-status.png)
-
-## 8. Save the Campaign
+## 7. Save the Campaign
 
 Once all your settings are configured, click the blue **"Save Campaign"** button.
 
 ![A screenshot of the top right of the screen, with a red box highlighting the "Save Campaign" button.](./../images/first-campaign-07-save.png)
 
-## 9. Verify in the Admin
+## 8. Verify in the Admin
 
 After saving, you will be automatically redirected to the "All Campaigns" list. You should see your new "Weekend Sale" campaign at the top of the table.
 
@@ -73,7 +68,7 @@ Because its start date is in the future, its status will be a yellow **"Schedule
 
 If you set the start date to a time in the past to make the campaign active immediately, you can visit your shop page. You will see the discounted prices displayed, often with the original price crossed out. This is the ultimate confirmation that your campaign is working correctly.
 
-![A screenshot of a WooCommerce shop page showing products with their original prices crossed out and the new, lower campaign prices displayed.](./../images/fields-01-title.png)
+<!-- ![A screenshot of a WooCommerce shop page showing products with their original prices crossed out and the new, lower campaign prices displayed.](./../images/fields-01-title.png) -->
 
 ## What's Next?
 

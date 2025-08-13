@@ -40,6 +40,6 @@ WordPress will upload and unpack the plugin. Once the installation is complete, 
 
 That's it! CampaignBay is now installed and ready to go. A new "Campaigns" menu item, featuring the CampaignBay icon, will appear in your main WordPress admin sidebar.
 
-The best way to get started is to create your first promotion. Our step-by-step guide will walk you through creating a simple, time-based sale in just a few clicks.
+The next step is to get familiar with the Dashboard, which is your new mission control for all discount activities.
 
-**➡️ Next Step: [Creating Your First Campaign](./first-campaign.md)**
+**➡️ Next Step: [Understanding the Dashboard Overview](./dashboard-overview.md)**

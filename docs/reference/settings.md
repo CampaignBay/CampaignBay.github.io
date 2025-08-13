@@ -1,65 +1,67 @@
 # All Settings Explained
 
-The main settings for CampaignBay can be found by navigating to **Campaigns > Settings**. This area allows you to configure the global, default behavior of the plugin. The settings are organized into several tabs.
+The main settings for CampaignBay can be found by navigating to **Campaigns > Settings**. This area allows you to configure the global, default behavior of the plugin for your entire store. The settings are organized into several tabs for clarity.
 
 [[toc]]
 
-## Global Settings
+## 1. Global Settings
 
-This tab contains the master controls for the entire plugin.
+This tab contains the master controls and foundational options for the entire plugin.
 
-![A screenshot of the "Global Settings" tab.](./../images/settings-01-global.png)
+![A screenshot of the "Global Settings" tab, showing all its fields.](./../images/settings-01-global.png)
 
--   **Enable Discount Add-on:** This is the master switch. If you turn this off, all CampaignBay campaigns will be temporarily disabled site-wide without you having to deactivate them individually.
--   **Default Rule Priority:** Determines which discount applies if multiple campaigns are valid for the same product. A lower number (e.g., `10`) runs before a higher number (`20`). This is rarely needed but useful for advanced setups.
--   **Discount Calculation Mode:** Choose whether discounts are calculated on the product price before or after tax has been added.
--   **Decimal Places for Discount Values:** Sets the number of decimal places for calculated discount amounts.
--   **Enable Discount Caching:** Recommended for performance. This caches the results of active campaign queries to speed up page loads. The cache is automatically cleared when you save a campaign.
--   **Debugging & Logging:** Contains tools for troubleshooting, including the "View Logs" and "Clear Logs" buttons.
+### General Options
 
-## Product Settings
+-   **Enable Discount Add-on:** This is the master switch for the plugin. If you turn this off, all CampaignBay campaigns will be temporarily disabled site-wide without you having to deactivate them individually. This is useful for quickly troubleshooting or pausing all promotions at once.
 
-This tab controls how discounts are displayed on your single product and shop pages.
+-   **Discount Calculation Mode:** This setting determines how discounts interact with your store's taxes.
+    -   **After Tax:** The discount is calculated based on the product price *after* taxes have been included.
+    -   **Before Tax:** The discount is calculated based on the product price *before* taxes are added.
+
+### Performance & Caching
+
+-   **Enable Discount Caching:** It is highly recommended to keep this enabled. This feature stores the results of active campaign queries in a temporary cache, which significantly speeds up page loading times for your customers, especially on the shop and product pages. The cache is automatically cleared whenever you save, activate, or deactivate a campaign, ensuring your changes are always reflected.
+-   **Clear Discount Cache:** Manually clears the campaign cache. You should only need to use this for troubleshooting if a discount doesn't appear to be applying correctly immediately after a change.
+
+### Debugging & Logging
+
+-   **Enable Debug Mode:** This enables detailed logging for troubleshooting purposes. When active, the plugin will write detailed information about its processes to a log file.
+-   **Log Level:** Controls how much information is logged when debug mode is on.
+-   **View Logs / Clear Log Files:** These buttons provide direct access to view and manage the plugin's log files from within your WordPress admin.
+
+## 2. Product Settings
+
+This tab controls how discounts are displayed on your **single product** and **shop/archive** pages.
 
 ![A screenshot of the "Product Settings" tab.](./../images/settings-02-product.png)
 
--   **Show Discounted Price on Product Page:** When enabled, this will show a "sale price" format, with the original price crossed out and the new, lower price displayed (e.g., <del>$50</del> $40). If disabled, only the final price will be shown.
--   **Product Page Discount Message Format:** Customize the "You save..." message that appears on the product page. You can use placeholders like `{percentage_off}` and `{amount_off}`.
+-   **Show Discounted Price on Product Page:** When enabled, this will display prices in a "sale" format, with the original price crossed out and the new, lower price shown (e.g., <del>$50</del> $40). If disabled, only the final discounted price will be shown without the original.
 
--   **Automatically Exclude Sale Items from Campaigns:** A crucial safety feature. When enabled, CampaignBay will not apply any discounts to a product that is already on a native WooCommerce sale. This prevents "double discounting."
--   **Handle Multiple Product Discounts:** If two campaigns apply to the same product, this setting determines the outcome:
-    -   *Apply Highest Discount:* The customer gets the best deal (lowest final price). **(Recommended)**
-    -   *Apply Lowest Discount:* The customer gets the smallest deal.
-    -   *Apply Based on Priority:* Uses the "Default Rule Priority" number to decide.
+-   **Product Page Discount Message Format:** Customize the "You save..." message that appears on the product page when a campaign is active. You can use the following placeholders, which will be automatically replaced with the correct values:
+    -   `{percentage_off}`: The total saving as a percentage.
+    -   `{amount_off}`: The total monetary saving, formatted in your store's currency.
 
-## Cart Settings
+-   **Automatically Exclude Sale Items from Campaigns:** This is a crucial safety feature, recommended to be kept **enabled**. It prevents "double discounting" by ensuring that CampaignBay will not apply any of its discounts to a product that you have already put on sale using the native WooCommerce "Sale Price" field.
 
-This tab controls how discounts interact with the WooCommerce cart.
+-   **Handle Multiple Product Discounts:** This setting resolves conflicts if two or more of your campaigns apply to the same product.
+    -   **Apply Highest Discount (Recommended):** The customer gets the best possible deal (the lowest final price).
+    -   **Apply Lowest Discount:** The customer gets the smallest discount available.
 
-![A screenshot of the "Cart Settings" tab.](./../images/settings-03-cart.png)
+## 3. Cart Settings
 
--   **Allow Stacking with WooCommerce Coupons:**
-    -   If **enabled**, customers can use a coupon code *in addition* to an automatic campaign discount.
-    -   If **disabled**, your plugin will prevent a coupon from being applied if a campaign discount is already active, and vice versa.
--   **'Next Discount' Progress Bar in Cart:** When a customer has a quantity-based discount item in their cart but hasn't reached the next tier, this enables a helpful notice (e.g., "Add 2 more to get 20% off!").
--   **'Next Discount' Message Format:** Customize the text for the progress bar notice. Use placeholders like `{remaining_quantity}` and `{discount_value}`.
--   **Display Applied Discount Details in Cart Summary:** When enabled, this adds a line item to the "Cart Totals" section for each active campaign, showing the customer a clear breakdown of their savings.
+This tab controls how discounts and notices behave within the WooCommerce **cart page**.
 
-## Promotion Settings
+![A screenshot of the "Cart Settings" tab.](./../images/settings-02-product.png)
 
-This tab controls optional, site-wide promotional elements.
+-   **Allow Stacking with WooCommerce Coupons:** This is a critical setting for your promotion strategy.
+    -   If **enabled**, customers can use a standard WooCommerce coupon code *in addition* to an automatic campaign discount that is already active in their cart.
+    -   If **disabled**, the system will enforce a "one or the other" rule. If a campaign discount is active, it will prevent a coupon from being applied. If a coupon is applied first, it will prevent your campaign discounts from activating.
 
-![A screenshot of the "Promotion Settings" tab.](./../images/settings-04-promotion.png)
+-   **'Next Discount' Progress Bar in Cart:** When a customer has a quantity-based discount item in their cart but hasn't reached the next discount tier, this enables a helpful notice under the product (e.g., "Add 2 more to get 20% off!"). This is a powerful upsell tool.
 
--   **Enable Top/Bottom Promotional Bar:** Activates a simple banner at the top or bottom of your site to announce a sale. You can customize the colors, text, and an optional link.
--   **Enable Custom Sale Badges:** Allows you to override the default WooCommerce "Sale!" badge with custom text, colors, and shapes for products discounted by your campaigns.
+-   **'Next Discount' Message Format:** Customize the text for the progress bar notice. You can use the following placeholders:
+    -   `{remaining_quantity}`: The number of additional items needed to reach the next tier.
+    -   `{discount_value}`: The discount offered at the next tier.
 
-## Advance Settings
+-   **Display Applied Discount Details in Cart Summary:** When enabled, this adds a line item to the "Cart Totals" section for each active campaign, showing the customer a clear breakdown of their savings (e.g., "Summer Sale: -$10.00"). If disabled, only the product prices will be changed, without a summary in the totals.
 
-This tab contains tools for data management and custom code.
-
-![A screenshot of the "Advance Settings" tab.](./../images/settings-05-advance.png)
-
--   **Delete All Plugin Data on Uninstall:** If you check this box, all your campaigns, settings, and log data will be **permanently deleted** from your database when you uninstall the plugin. Use with caution.
--   **Export / Import Campaign Rules:** These tools allow you to download a backup of all your campaigns or import them to another site.
--   **Custom CSS / JavaScript:** Add custom CSS or JavaScript snippets to modify the plugin's appearance or behavior without editing plugin files directly.

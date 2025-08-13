@@ -5,79 +5,125 @@ export default defineConfig({
   title: "CampaignBay Documentation",
   description: "Comprehensive documentation for CampaignBay - Advanced WooCommerce Discount Campaigns",
   
-  // Clean up the head to remove potential duplicates if you add meta tags later
+  // Enhanced head configuration
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }] // Example: Add a favicon
+    ['link', { rel: 'icon', href: '/images/dash_icon_campaign_bay_dark.svg' }],
+    ['meta', { name: 'theme-color', content: '#3a86ff' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }]
   ],
 
+  // Enhanced theme configuration
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    logo: '/logo.svg', // Recommended: Add your logo to the /docs/public/ directory
+    // Logo configuration
+    logo: '/images/dash_icon_campaign_bay_dark.svg',
     
+    // Enhanced search
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: 'Search docs...',
+                buttonAriaLabel: 'Search docs'
+              },
+              modal: {
+                noResultsText: 'No results for',
+                resetButtonTitle: 'Clear search',
+                footer: {
+                  selectText: 'to select',
+                  navigateText: 'to navigate',
+                  closeText: 'to close'
+                }
+              }
+            }
+          }
+        }
+      }
     },
 
-    // --- UPDATED NAV ---
-    // Simplified for a cleaner user experience. The "Guide" link takes users
-    // directly to the start of the documentation.
+    // Enhanced navigation
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/getting-started/installation' },
-      // The GitHub link is better placed in socialLinks
+      { text: '🏠 Home', link: '/' },
+      { text: '🚀 Getting Started', link: '/getting-started/installation' },
     ],
 
-    // --- UPDATED SIDEBAR ---
-    // This now perfectly matches the file structure and content you have created.
+    // Enhanced sidebar with better organization
     sidebar: [
       {
         text: 'Getting Started',
-        collapsed: false, // Keep this section open by default
+        collapsible: true,
         items: [
           { text: 'Installation', link: '/getting-started/installation' },
-          { text: 'First Campaign', link: '/getting-started/first-campaign' },
+          { text: 'Dashboard Overview', link: '/getting-started/dashboard-overview' }
         ]
       },
       {
-        text: 'User Guides',
-        collapsed: false,
+        text: 'Campaign Types',
+        collapsible: true,
         items: [
-          { text: 'Dashboard Overview', link: '/guides/dashboard-overview' },
-          { text: 'All Campaign Types', link: '/guides/all-campaign-types' },
-          { text: 'Managing Campaigns', link: '/guides/managing-campaigns' },
+          { text: 'Your First Campaign (Scheduled)', link: '/campaign-types/first-campaign-scheduled' },
+          { text: 'Quantity Based Discounts', link: '/campaign-types/quantity-discounts' },
+          { text: 'Early Bird Discounts', link: '/campaign-types/earlybird-discounts' },
+        ]
+      },
+      {
+        text: 'Managing Your Campaigns',
+        collapsible: true,
+        items: [
+          { text: 'The "All Campaigns" Screen', link: '/managing-campaigns/all-campaigns-screen' },
         ]
       },
       {
         text: 'Reference',
-        collapsed: false,
+        collapsible: true,
         items: [
-          { text: 'Settings Configuration', link: '/reference/settings' },
+          {
+            text: 'All Settings',
+            link: '/reference/settings',
+            // --- This creates the nested submenu for the settings page ---
+            items: [
+              { text: 'Global Settings', link: '/reference/settings#_1-global-settings' },
+              { text: 'Product Settings', link: '/reference/settings#_2-product-settings' },
+              { text: 'Cart Settings', link: '/reference/settings#_3-cart-settings' },
+              { text: 'Promotion Settings', link: '/reference/settings#_4-promotion-settings' },
+              { text: 'Advance Settings', link: '/reference/settings#_5-advance-settings' },
+            ]
+          }
         ]
-      },
-      // You can uncomment these sections later when you write the corresponding .md files
-      // {
-      //   text: 'Developer Reference',
-      //   items: [
-      //     { text: 'Actions & Filters', link: '/developer/hooks' },
-      //   ]
-      // },
-      // {
-      //   text: 'Support',
-      //   items: [
-      //     { text: 'Troubleshooting', link: '/support/troubleshooting' },
-      //     { text: 'FAQ', link: '/support/faq' },
-      //   ]
-      // }
+      }
     ],
 
+
+    // Enhanced social links
     socialLinks: [
-      // Make sure this link points to your actual GitHub repository
       { icon: 'github', link: 'https://campaignbay.github.io/' }
     ],
 
+    // Enhanced footer
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2024-present WP Anchor Bay'
+    },
+
+    // Enhanced site title
+    siteTitle: 'CampaignBay Docs'
+  },
+
+  // Enhanced markdown configuration
+  markdown: {
+    theme: 'material-theme-palenight',
+    lineNumbers: true,
+    toc: { level: [1, 2, 3] },
+    config: (md) => {
+      // Add custom markdown plugins if needed
     }
-  }
+  },
+
+  // Enhanced appearance
+  appearance: 'dark',
+  
+  // Enhanced last updated
+  lastUpdated: true
 })

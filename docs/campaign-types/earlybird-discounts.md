@@ -1,69 +1,140 @@
 # Early Bird Discounts
 
-The "Early Bird" campaign is one of the most powerful marketing tools in CampaignBay for creating **urgency** and **FOMO (Fear Of Missing Out)**. It allows you to offer tiered discounts that are available to a limited number of customers.
+Early Bird discounts are a powerful psychological tool that creates urgency and FOMO (Fear Of Missing Out) by offering tiered discounts based on order volume. This campaign type rewards the earliest customers most generously, creating a compelling reason to buy now rather than later.
 
-Unlike a Quantity Discount, which is based on the number of items in a single person's cart, an Early Bird discount is based on the **total number of successful orders** that have already used the campaign across your entire store.
+**Example:** "First 50 orders get 30% off, next 100 orders get 20% off, then 10% off for everyone else!"
 
-**Example:** "The first 50 customers to order get 30% off! The next 100 customers get 15% off."
+## How It Works
+
+Early Bird discounts use sophisticated order tracking to automatically adjust pricing based on how many orders have already been placed. The plugin's Order Manager tracks successful sales and applies the appropriate discount tier in real-time.
+
+### Core Logic
+
+The plugin uses the Order Manager to track the number of successful sales (processing or completed orders) that have utilized the campaign. This "usage count" is then compared against the tiers (e.g., "First 100 orders," "Next 200 orders") to determine which discount, if any, a new customer is eligible for.
+
+**Key Features:**
+
+- **Real-time Order Tracking**: Automatically counts successful orders as they're placed
+- **Tiered Discount Structure**: Multiple discount levels based on order volume
+- **Automatic Price Updates**: Product prices adjust automatically as order limits are reached
+- **Urgency Creation**: Drives immediate action through limited availability
 
 ## Use Cases
 
--   **New Product Launches:** Reward your first buyers and generate immediate sales velocity and social proof.
--   **Flash Sales:** Drive a massive amount of traffic in a short period by creating a race to the checkout.
--   **Rewarding VIPs:** Offer a special, limited-slot discount to your most loyal email subscribers.
+- **Product Launches:** Create excitement and urgency for new product releases
+- **Flash Sales:** Drive immediate action with time-sensitive, limited-quantity offers
+- **VIP Customer Rewards:** Offer exclusive early access to loyal customers
+- **Inventory Management:** Move products quickly with diminishing returns strategy
+- **Event-based Promotions:** Create urgency around specific dates or events
 
 ## Configuration Steps
 
 ### 1. Select the Campaign Type
 
-From the "Add Campaign" screen, select **"EarlyBird Discount"** from the "SELECT DISCOUNT TYPE" dropdown.
-
-<!-- ![A screenshot of the "Add Campaign" screen with the "EarlyBird Discount" option highlighted in the dropdown.](./../images/earlybird-01-tiers.png) -->
+From the "Add Campaign" screen, select **"Early Bird Discount"** from the "SELECT DISCOUNT TYPE" dropdown.
 
 ### 2. Configure Common Fields
 
-Set the **Campaign Title**, **Target** (e.g., "Specific Products"), and **Campaign Duration**. While an Early Bird campaign can expire when all slots are claimed, it's a best practice to also set a final **End Date** for the promotion.
+Set the **Campaign Title**, **Target** (e.g., "Specific Products"), and **Campaign Duration** just as you would for other campaign types. Early Bird campaigns work best when targeting specific products or categories rather than the entire store.
 
 ### 3. Define the Early Bird Tiers
 
-This is the primary configuration for an Early Bird Discount. You will define one or more tiers based on the order count.
-
-![A screenshot of the "Define Early Bird Tiers" section, showing two tiers being configured for the example below.](./../images/earlybird-01-tiers.png)
+This is the core of the Early Bird discount. You will define one or more pricing tiers based on order volume. Each tier represents a range of orders and the discount that applies within that range.
 
 Let's break down the fields for a single tier:
 
--   **Up to first (Max Orders):** This is the most important field. It defines the maximum number of **total orders** that can receive this tier's discount. For "the first 100 orders," you would enter `100`.
--   **orders, get (Value):** The discount value for this tier.
--   **Type (% or Fixed):** Choose whether the discount is a percentage or a fixed amount.
--   **+ Add another tier:** Click this to add more tiers.
+- **First (Min):** The minimum number of orders that must be placed for this tier to apply.
+- **to (Max):** The maximum number of orders for this tier. **Important:** Leave this field blank on your last tier to represent "and up."
+- **orders, get (Value):** The discount value for customers who place orders within this range.
+- **Type (% or Fixed):** Choose whether the discount is a percentage or a fixed amount.
+- **+ Add another tier:** Click this button to add more pricing levels to create a more granular discount structure.
 
 ### Example Scenario & Setup
 
-Let's say you are launching a new product and want to create a tiered offer to drive initial sales:
--   The first **100 orders** get **25% off**.
--   The next **200 orders** (i.e., orders 101 through 300) get **10% off**.
+Let's say we want to create the following Early Bird structure:
+
+- First 50 orders: 30% off
+- Next 100 orders: 20% off
+- All remaining orders: 10% off
 
 Your tier configuration would look like this:
 
--   **Tier 1:** Max Orders `100`, Value `25`, Type `%`
--   **Tier 2:** Max Orders `300`, Value `10`, Type `%`
+- **Tier 1:** Min `1`, Max `50`, Value `30`, Type `%` (Percentage)
+- **Tier 2:** Min `51`, Max `150`, Value `20`, Type `%` (Percentage)
+- **Tier 3:** Min `151`, Max `(blank)`, Value `10`, Type `%` (Percentage)
 
-### 4. How it Works for Customers
+## Advanced Configuration Options
 
-The plugin automatically tracks the number of successful orders that have used this campaign.
+### Campaign Stacking
 
--   When the **1st customer** places their order, the system checks the usage count (which is `0`). Since `0` is less than `100`, they qualify for the first tier and receive a 25% discount.
--   When the **150th customer** places their order, the system checks the usage count (which is `149`). `149` is not less than `100`, so they do not get the first tier. However, `149` is less than `300`, so they qualify for the second tier and receive a 10% discount.
--   When the **301st customer** places their order, the usage count is `300`. Since this is not less than any of the tier maximums, they will not receive an Early Bird discount. The campaign is now fully claimed.
+When "Allow Campaign Stacking" is enabled, Early Bird discounts work in combination with other campaign types:
 
-### 5. How it Appears on the Product Page
+1. **First**: The best Scheduled discount is applied to the base price
+2. **Then**: The Early Bird discount is calculated and applied on top
+3. **Finally**: Quantity discounts and WooCommerce coupons can be applied (if enabled)
 
-To maximize urgency, the Early Bird campaign can display a notice on the product page showing how many discounts are left, or a countdown. This clearly communicates the scarcity of the offer to potential buyers.
+This creates powerful combination offers that maximize customer savings and drive conversions.
 
-<!-- ![A screenshot of a single product page showing a notice like "Hurry! Only 25 spots left to get 25% off!".](./../images/fields-01-title.png) -->
+### Order Tracking Accuracy
+
+The plugin tracks orders with high accuracy:
+
+- **Processing Orders**: Counted immediately when payment is processed
+- **Completed Orders**: Verified and counted for final accuracy
+- **Failed Orders**: Automatically excluded from the count
+- **Refunded Orders**: Can be configured to reduce the count if needed
+
+## How It Appears on the Product Page
+
+Early Bird discounts automatically update product pricing in real-time:
+
+- **Price Display**: Shows the current applicable discount price
+- **Urgency Messaging**: Can display messages like "Only X orders left at this price!"
+- **Tier Information**: Shows customers what discount they'll receive
+- **Dynamic Updates**: Prices change automatically as order limits are reached
+
+## How It Works in the Cart
+
+The plugin automatically applies the correct Early Bird discount based on the current order count:
+
+- **Real-time Calculation**: Discounts are calculated when the cart is loaded
+- **Automatic Application**: No manual intervention required
+- **Order Count Updates**: Discounts adjust as new orders are placed
+- **Cart Integration**: Seamlessly integrates with WooCommerce cart functionality
+
+## Performance & Optimization
+
+Early Bird discounts are optimized for performance:
+
+- **Efficient Order Counting**: Uses optimized database queries for order tracking
+- **Intelligent Caching**: Campaign results are cached to improve page load times
+- **Background Updates**: Order counts are updated in the background to avoid delays
+
+## Troubleshooting
+
+**Common Issues:**
+
+1. **Discounts Not Applying**: Check that the campaign is active and the product is within the target scope
+2. **Wrong Tier Applied**: Verify tier configuration and check current order count
+3. **Order Count Inaccurate**: Check order statuses and ensure proper tracking is enabled
+
+**Debug Tools:**
+
+- Use the "View Logs" feature in settings to troubleshoot calculation issues
+- Check campaign status and current order count in the admin dashboard
+- Verify order tracking settings and configuration
+
+## Best Practices
+
+**Creating Effective Early Bird Campaigns:**
+
+1. **Set Realistic Limits**: Base tier limits on your actual inventory and sales capacity
+2. **Create Urgency**: Use compelling messaging to drive immediate action
+3. **Monitor Performance**: Track conversion rates and adjust tiers as needed
+4. **Combine Strategies**: Use Early Bird discounts with other campaign types for maximum impact
 
 ## What's Next?
 
-You have now learned about all the major campaign types in CampaignBay. The next step is to understand the "All Campaigns" screen, which is your central hub for managing, filtering, and performing bulk actions on all the campaigns you've created.
+Now that you understand how to create urgency with Early Bird discounts, let's explore how to manage and optimize all your campaigns effectively.
 
-**➡️ Next Step: [Learn About Managing Your Campaigns](../managing-campaigns/all-campaigns-screen.md)**
+**➡️ Next Step: [Learn About Campaign Management](/managing-campaigns/all-campaigns-screen)**

@@ -1,80 +1,205 @@
-# Your First Campaign (Scheduled Discount)
+# Creating Your First Campaign: Scheduled Discount
 
-This guide provides a detailed, step-by-step walkthrough for creating the most common and straightforward type of discount: a **Scheduled Discount**. This campaign type is the foundation for most time-based sales, like holiday promotions or weekend flash sales.
+This tutorial will guide you through creating your first CampaignBay campaign - a **Scheduled Discount**. This is the perfect starting point for beginners as it covers the foundational concepts that apply to all campaign types.
 
-Our goal in this tutorial is to create a **"20% Off Weekend Sale"** for all products on the store.
+## What is a Scheduled Discount?
 
-## 1. Navigate to Add Campaign
+A **Scheduled Discount** is the foundational campaign type in CampaignBay, ideal for creating traditional sales events like "Black Friday," "Summer Clearance," or weekend flash sales. It applies a direct price reduction (either a fixed amount or a percentage) to eligible products during a specified time period.
 
-In your WordPress admin menu, find the main **Campaigns** item. Click on it, and then select **Add Campaign**. This will take you to the main campaign editor screen where you will configure all your discounts.
+**Key Features:**
 
-![A screenshot showing the WordPress admin menu with the "Campaigns" item expanded and the "Add Campaign" sub-item highlighted.](./../images/first-campaign-01-menu.png)
+- **Time-based Activation**: Automatically starts and stops based on your schedule
+- **Flexible Discount Types**: Percentage or fixed amount discounts
+- **Precise Targeting**: Apply to specific products, categories, or your entire store
+- **Automated Management**: No manual intervention required once set up
 
-## 2. Select the Campaign Type
+## Before You Begin
 
-This is the most important setting, as it defines how your discount will behave. Click on the **"SELECT DISCOUNT TYPE"** dropdown menu. For this tutorial, select the **"Scheduled Discount"** option.
+Make sure you have:
 
-![A screenshot of the "Add Campaign" screen, focused on the "SELECT DISCOUNT TYPE" dropdown, with "Scheduled Discount" clearly selected from the list.](./../images/first-campaign-02-type.png)
+- ✅ CampaignBay plugin installed and activated
+- ✅ WooCommerce configured with at least one product
+- ✅ Access to your WordPress admin dashboard
 
-## 3. Set the Campaign Title
+## Step-by-Step Campaign Creation
 
-In the **"CAMPAIGN TITLE"** field, give your campaign a clear and descriptive name. This title is important because it will be shown to customers in the cart totals section, so make it something they will understand, like `Weekend Sale`.
+### Step 1: Access the Campaign Creation Screen
 
-![A screenshot focused on the "CAMPAIGN TITLE" field, with the text "Weekend Sale" typed into it.](./../images/first-campaign-03-title.png)
+1. Navigate to **Campaigns > Add Campaign** in your WordPress admin menu
+2. You'll see the campaign creation form with several sections
 
-## 4. Choose the Target
+### Step 2: Select Campaign Type
 
-The **"SELECT FOR USERS"** field determines which products are eligible for the discount. For this first campaign, we want to apply the discount to everything in the store. Ensure that **"Entire Store"** is selected. This is the simplest and broadest targeting option.
+From the "SELECT DISCOUNT TYPE" dropdown, choose **"Scheduled Discount"**.
 
-![A screenshot focused on the "SELECT FOR USERS" dropdown, showing that "Entire Store" is the selected option.](./../images/first-campaign-04-target.png)
+![A screenshot of the "Add Campaign" screen with the "Scheduled Discount" option highlighted in the dropdown.](./../images/first-campaign-02-type.png)
 
-## 5. Define the Discount Value
+### Step 3: Configure Basic Campaign Information
 
-In this section, you will set the amount of the discount.
-1.  In the input field, type `20`.
-2.  Ensure the **`%`** button next to the field is highlighted and blue. This sets the discount type to a percentage.
+Fill in the essential campaign details:
 
-This configures a 20% discount that will be applied to the price of every eligible product.
+**Campaign Title**
 
-![A screenshot of the discount value section, showing "20" in the input box and the "%" button highlighted.](./../images/first-campaign-05-value.png)
+- Enter a descriptive name (e.g., "Summer Sale 2024" or "Weekend Flash Sale")
+- This title will be visible in your admin dashboard and can be used in customer communications
 
-## 6. Set the Schedule
+**Target Selection**
+Choose where your discount will apply:
 
-Because this is a "Scheduled Discount," you must provide a start and end date. The **"Enable Scheduling"** toggle will be automatically turned on and locked, as a schedule is required for this campaign type.
+- **Entire Store**: Applies to all products (use sparingly for major sales)
+- **Specific Products**: Select individual products for targeted promotions
+- **Specific Categories**: Apply to all products within selected categories
 
-1.  **Start Time / Date:** Click the time and date fields to open the pickers. Select the date and time you want the sale to begin (e.g., Friday at 12:01 AM).
-2.  **End Time / Date:** Select the date and time you want the sale to end (e.g., Sunday at 11:59 PM).
+![A screenshot showing the target selection options.](./../images/first-campaign-03-title.png)
 
-The schedule will run based on the timezone you have set in your main WordPress settings (`Settings > General`).
+### Step 4: Set Campaign Duration
 
-![A screenshot focused on the "SELECT CAMPAIGN DURATION" section, showing a start and end date/time being selected in the calendar/time pickers.](./../images/first-campaign-06-schedule.png)
+Configure when your campaign will be active:
 
+**Start Date & Time**
 
-## 7. Save the Campaign
+- Set when the campaign should begin
+- Use the date picker to select your desired start date
+- Set a specific time for precise control
 
-Once all your settings are configured, click the blue **"Save Campaign"** button.
+**End Date & Time**
 
-![A screenshot of the top right of the screen, with a red box highlighting the "Save Campaign" button.](./../images/first-campaign-07-save.png)
+- Set when the campaign should end
+- Leave blank for ongoing campaigns
+- Consider your timezone settings
 
-## 8. Verify in the Admin
+![A screenshot showing the schedule configuration section.](./../images/first-campaign-06-schedule.png)
 
-After saving, you will be automatically redirected to the "All Campaigns" list. You should see your new "Weekend Sale" campaign at the top of the table.
+### Step 5: Configure Discount Details
 
-Because its start date is in the future, its status will be a yellow **"Scheduled"** pill. This confirms that the system has correctly saved and scheduled your campaign. The Scheduler will automatically change this to "Active" when the start date arrives.
+**Discount Type**
+Choose between:
 
-![A screenshot of the "All Campaigns" list table, with the newly created "Weekend Sale" campaign visible at the top and its "Scheduled" status pill highlighted.](./../images/first-campaign-08-verify.png)
+- **Percentage**: Reduces price by a percentage (e.g., 20% off)
+- **Fixed Amount**: Reduces price by a specific dollar amount (e.g., $10 off)
 
-## 10. Verify on the Frontend (Optional)
+**Discount Value**
 
-If you set the start date to a time in the past to make the campaign active immediately, you can visit your shop page. You will see the discounted prices displayed, often with the original price crossed out. This is the ultimate confirmation that your campaign is working correctly.
+- For percentage: Enter the discount percentage (e.g., 20 for 20% off)
+- For fixed amount: Enter the dollar amount (e.g., 10 for $10 off)
 
-<!-- ![A screenshot of a WooCommerce shop page showing products with their original prices crossed out and the new, lower campaign prices displayed.](./../images/fields-01-title.png) -->
+**Important Notes:**
 
-## What's Next?
+- Percentage discounts are calculated from the regular price
+- Fixed amount discounts are deducted from the regular price
+- The final price cannot go below zero
 
-Congratulations! You've mastered the **Scheduled Discount**.
+![A screenshot showing the discount value configuration.](./../images/first-campaign-05-value.png)
 
-Now that you understand the basic workflow, let's explore the more advanced campaign types that can help you create even more powerful promotions.
+### Step 6: Review and Save
 
-*   **➡️ Learn about [Quantity Based Discounts](./quantity-discounts.md)**
-*   **➡️ Learn about [Early Bird Discounts](./earlybird-discounts.md)**
+Before saving, review your campaign configuration:
+
+**Checklist:**
+
+- ✅ Campaign type selected correctly
+- ✅ Title is descriptive and clear
+- ✅ Target scope is appropriate
+- ✅ Start and end dates are correct
+- ✅ Discount type and value are set correctly
+
+**Save Your Campaign**
+Click the "Save Campaign" button to create your first campaign.
+
+![A screenshot showing the save button and campaign summary.](./../images/first-campaign-07-save.png)
+
+## What Happens Next?
+
+### Automatic Status Management
+
+Once saved, your campaign will automatically transition through different statuses:
+
+1. **Scheduled**: Campaign is created but not yet active
+2. **Active**: Campaign is running and applying discounts
+3. **Expired**: Campaign has ended (if end date was set)
+
+### Customer Experience
+
+When your campaign becomes active:
+
+- **Product Pages**: Show discounted prices with strikethrough original prices
+- **Shop Pages**: Display sale prices and "Sale!" badges
+- **Cart**: Automatically applies discounts to eligible products
+- **Checkout**: Final prices reflect all active discounts
+
+## Verifying Your Campaign
+
+### Check Campaign Status
+
+1. Go to **Campaigns > All Campaigns**
+2. Find your campaign in the list
+3. Verify the status shows as expected
+
+![A screenshot showing the campaign verification in the admin dashboard.](./../images/first-campaign-08-verify.png)
+
+### Test Customer Experience
+
+1. Visit your store as a customer
+2. Navigate to products included in your campaign
+3. Verify discounted prices are displayed correctly
+4. Add products to cart and verify discounts apply
+
+## Advanced Configuration Options
+
+### Campaign Stacking
+
+If you plan to run multiple campaigns simultaneously:
+
+- **Enable Stacking**: Allows multiple campaigns to apply to the same product
+- **Conflict Resolution**: Choose how to handle overlapping discounts
+- **Priority Settings**: Control which discounts take precedence
+
+### Performance Optimization
+
+- **Enable Caching**: Improves page load times (recommended)
+- **Debug Mode**: Enable for troubleshooting (disable in production)
+
+## Troubleshooting Common Issues
+
+**Campaign Not Active:**
+
+- Check start date and time
+- Verify campaign status in admin dashboard
+- Ensure WooCommerce is active
+
+**Discounts Not Applying:**
+
+- Verify product targeting is correct
+- Check if products are excluded from sales
+- Enable debug mode to view logs
+
+**Performance Issues:**
+
+- Enable discount caching
+- Check for conflicting plugins
+- Review server resources
+
+## Next Steps
+
+Congratulations! You've successfully created your first CampaignBay campaign. Here's what to explore next:
+
+**Immediate Actions:**
+
+- Monitor your campaign performance
+- Test the customer experience
+- Adjust settings if needed
+
+**Advanced Features:**
+
+- [Quantity Based Discounts](./quantity-discounts.md) - Create tiered pricing for bulk purchases
+- [Early Bird Discounts](./earlybird-discounts.md) - Drive urgency with limited-time offers
+- [Campaign Management](/managing-campaigns/all-campaigns-screen) - Learn to manage multiple campaigns
+
+**Optimization:**
+
+- [Settings Configuration](/reference/settings) - Fine-tune plugin behavior
+- [Dashboard Overview](/getting-started/dashboard-overview) - Monitor campaign performance
+
+---
+
+_You're now ready to create powerful, automated discount campaigns that drive sales and engage customers!_

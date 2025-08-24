@@ -35,7 +35,6 @@ features:
   - icon: 💰
     title: ROI Focused
     details: Every feature is designed to maximize your return on investment. From automated scheduling to performance tracking, CampaignBay helps you create campaigns that pay for themselves.
-
 ---
 
 ## 🎯 Why Choose CampaignBay?
@@ -43,11 +42,13 @@ features:
 CampaignBay transforms how you approach discount marketing in WooCommerce. Instead of manual, time-consuming promotional setups, you get a powerful, automated system that works 24/7 to drive sales and increase customer engagement.
 
 ### 🚀 **Get Started in Minutes**
+
 - **Quick Setup**: Install and configure in under 5 minutes
 - **Templates**: Pre-built campaign templates for common scenarios
 - **Wizard**: Step-by-step campaign creation wizard
 
 ### 📈 **Proven Results**
+
 - **Increase AOV**: Boost average order values by 15-25%
 - **Drive Traffic**: Create urgency that brings customers back
 - **Automate Sales**: Set campaigns once, run them forever
@@ -57,12 +58,15 @@ CampaignBay transforms how you approach discount marketing in WooCommerce. Inste
 <div class="campaign-types-grid">
 
 #### ⏰ **Scheduled Discounts**
+
 Perfect for holiday sales, weekend specials, and time-limited promotions. Set start and end dates, and let automation handle the rest.
 
 #### 📦 **Quantity-Based Discounts**
+
 Encourage bulk purchases with tiered pricing. "Buy 2, save 10%. Buy 4, save 20%!" - drive higher cart values effortlessly.
 
 #### 🐦 **Early Bird Discounts**
+
 Create urgency with limited-time offers for early customers. Perfect for product launches and flash sales.
 
 </div>
@@ -74,12 +78,15 @@ Create urgency with limited-time offers for early customers. Perfect for product
 <div class="quick-start-steps">
 
 ### 1️⃣ **Install & Activate**
+
 Upload the plugin and activate it in WordPress. CampaignBay integrates seamlessly with your existing WooCommerce setup.
 
 ### 2️⃣ **Create Your First Campaign**
+
 Use our guided wizard to create a simple scheduled discount in just a few clicks.
 
 ### 3️⃣ **Monitor & Optimize**
+
 Track performance through our intuitive dashboard and optimize campaigns based on real data.
 
 </div>
@@ -91,16 +98,20 @@ Track performance through our intuitive dashboard and optimize campaigns based o
 <div class="docs-sections">
 
 ### 🚀 **Getting Started**
+
 - [Installation Guide](/getting-started/installation) - Complete setup instructions
 - [First Campaign](/campaign-types/first-campaign-scheduled) - Step-by-step tutorial
 
 ### 📚 **User Guides**
+
 - [Dashboard Overview](/getting-started/dashboard-overview) - Master your campaign control center
 - [Campaign Types](/campaign-types/quantity-discounts) - Deep dive into all discount options
 - [Campaign Management](/managing-campaigns/all-campaigns-screen) - Organize and optimize your campaigns
 
 ### ⚙️ **Reference**
+
 - [Settings Configuration](/reference/settings) - Configure global plugin behavior
+- [Complete Feature Overview](/reference/complete-features) - Comprehensive technical documentation
 
 </div>
 
@@ -124,4 +135,4 @@ Track performance through our intuitive dashboard and optimize campaigns based o
 
 ---
 
-*Ready to transform your WooCommerce store with powerful, automated discount campaigns? [Get started now](/getting-started/installation)!*
+_Ready to transform your WooCommerce store with powerful, automated discount campaigns? [Get started now](/getting-started/installation)!_

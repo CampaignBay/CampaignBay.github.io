@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 🚀 Get Started
-      link: /getting-started/installation
+      link: /installation
     - theme: alt
       text: 🎯 First Campaign
       link: /campaign-types/first-campaign-scheduled
@@ -97,21 +97,22 @@ Track performance through our intuitive dashboard and optimize campaigns based o
 
 <div class="docs-sections">
 
-### 🚀 **Getting Started**
+### 🧠 **Core Concepts**
 
-- [Installation Guide](/getting-started/installation) - Complete setup instructions
-- [First Campaign](/campaign-types/first-campaign-scheduled) - Step-by-step tutorial
+- [Understanding the Engine](../core-concepts/understanding-the-engine.md) - Learn how CampaignBay works
+- [Scheduling and Automation](../core-concepts/scheduling-and-automation.md) - Master automation features
 
-### 📚 **User Guides**
+### 🎯 **Campaign Types**
 
-- [Dashboard Overview](/getting-started/dashboard-overview) - Master your campaign control center
-- [Campaign Types](/campaign-types/quantity-discounts) - Deep dive into all discount options
-- [Campaign Management](/managing-campaigns/all-campaigns-screen) - Organize and optimize your campaigns
+- [Scheduled Discounts](../campaigns/scheduled-discounts.md) - Time-based promotional campaigns
+- [Quantity Discounts](../campaigns/quantity-discounts.md) - Volume-based pricing strategies
+- [Early Bird Discounts](../campaigns/early-bird-discounts.md) - Early adopter incentives
 
-### ⚙️ **Reference**
+### 🛠️ **Tools & Configuration**
 
-- [Settings Configuration](/reference/settings) - Configure global plugin behavior
-- [Complete Feature Overview](/reference/complete-features) - Comprehensive technical documentation
+- [Dashboard](../dashboard.md) - Your campaign control center
+- [Settings](../settings.md) - Configure your account and preferences
+- [FAQ](../faq.md) - Common questions and answers
 
 </div>
 

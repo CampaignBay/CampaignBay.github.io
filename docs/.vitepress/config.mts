@@ -46,53 +46,36 @@ export default defineConfig({
     // Enhanced navigation
     nav: [
       { text: '🏠 Home', link: '/' },
-      { text: '🚀 Getting Started', link: '/getting-started/installation' },
+      { text: '🚀 Getting Started', link: '/installation' },
     ],
 
     // Enhanced sidebar with better organization
     sidebar: [
+      { text: 'Introduction', link: '/installation' },
+      { text: 'Dashboard', link: '/dashboard' },
       {
-        text: 'Getting Started',
-        collapsible: true,
+        text: 'Core Concepts',
         items: [
-          { text: 'Installation', link: '/getting-started/installation' },
-          { text: 'Dashboard Overview', link: '/getting-started/dashboard-overview' }
+          { text: 'The Discount Engine', link: '/core-concepts/understanding-the-engine' },
+          { text: 'Scheduling & Automation', link: '/core-concepts/scheduling-and-automation' },
         ]
       },
       {
-        text: 'Campaign Types',
-        collapsible: true,
+        text: 'Campaigns', // This is now a collapsible group
         items: [
-          { text: 'Your First Campaign (Scheduled)', link: '/campaign-types/first-campaign-scheduled' },
-          { text: 'Quantity Based Discounts', link: '/campaign-types/quantity-discounts' },
-          { text: 'Early Bird Discounts', link: '/campaign-types/earlybird-discounts' },
-        ]
-      },
-      {
-        text: 'Managing Your Campaigns',
-        collapsible: true,
-        items: [
-          { text: 'The "All Campaigns" Screen', link: '/managing-campaigns/all-campaigns-screen' },
-        ]
-      },
-      {
-        text: 'Reference',
-        collapsible: true,
-        items: [
+          { text: 'All Campaigns', link: '/campaigns/' }, // The main list view
           {
-            text: 'All Settings',
-            link: '/reference/settings',
-            // --- This creates the nested submenu for the settings page ---
+            text: 'Campaign Types',
             items: [
-              { text: 'Global Settings', link: '/reference/settings#_1-global-settings' },
-              { text: 'Product Settings', link: '/reference/settings#_2-product-settings' },
-              { text: 'Cart Settings', link: '/reference/settings#_3-cart-settings' },
-              { text: 'Promotion Settings', link: '/reference/settings#_4-promotion-settings' },
-              { text: 'Advance Settings', link: '/reference/settings#_5-advance-settings' },
+              { text: 'Scheduled Discounts', link: '/campaigns/scheduled-discounts' },
+              { text: 'Quantity Discounts', link: '/campaigns/quantity-discents' },
+              { text: 'Early Bird Discounts', link: '/campaigns/early-bird-discounts' },
             ]
           }
         ]
-      }
+      },
+      { text: 'Settings', link: '/settings' },
+      { text: 'FAQ', link: '/faq' },
     ],
 
 

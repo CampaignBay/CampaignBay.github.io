@@ -1,193 +1,114 @@
-# Quantity Discounts
+# Campaign Type: Quantity Based Discount
 
-## Overview
+A **Quantity Based Discount** is a powerful tool for creating tiered pricing structures that reward customers for buying in bulk. This encourages larger order values by reducing the per-item cost as the quantity of that item in the cart increases.
 
-Quantity discounts encourage customers to purchase more items by offering progressively better deals as order quantities increase. This campaign type is excellent for boosting average order value, clearing inventory, and rewarding bulk purchases.
+This is the perfect campaign type for scenarios like:
 
-## Key Features
+- "Buy 3 or more, get 10% off each"
+- "Buy a case of 12 and get $2 off each bottle"
+- Creating wholesale-style pricing for regular customers.
 
-### Tiered Discount Structure
+This guide will walk you through every field required to set up this campaign type.
 
-- **Volume-Based**: Discounts increase with quantity purchased
-- **Category-Based**: Different discount rules for different product categories
-- **Customer Group**: Special pricing for VIP or wholesale customers
-- **Dynamic Pricing**: Automatic adjustment based on current inventory levels
+---
 
-### Discount Types
+## Step 1: Select the Campaign Type
 
-- **Percentage Off**: Higher percentages for larger quantities
-- **Fixed Amount Off**: Dollar savings that increase with quantity
-- **Free Shipping**: Waived shipping costs for bulk orders
-- **Bonus Items**: Free products with qualifying purchases
+To begin, navigate to **Campaigns → Add Campaign**. The first field determines the core logic of your new promotion.
 
-## Setting Up Quantity Discounts
+![Select Quantity Based Discount Type](./../public/quantity-type.png)
 
-### Step 1: Campaign Configuration
+- **SELECT DISCOUNT TYPE:** From the dropdown menu, choose **`Quantity Based Discount`**. This will reveal the specific fields needed for a tiered pricing campaign.
 
-1. Navigate to Campaigns section
-2. Select "Quantity Discounts" as campaign type
-3. Enter campaign name and description
-4. Set campaign duration (if time-limited)
+## Step 2: Set the Status
 
-### Step 2: Discount Tiers
+This field controls the current state of your campaign.
 
-1. Define quantity breakpoints (e.g., 2+, 5+, 10+)
-2. Set discount amount for each tier
-3. Choose discount type (percentage or fixed amount)
-4. Set maximum discount limits
+![Select Campaign Status](./../public/campaign-status.png)
 
-### Step 3: Product Selection
+- **SELECT STATUS:**
+  - **Active:** Choose this if you want the campaign to be live on your site (either immediately or on a future schedule).
+  - **Inactive:** Choose this to save the campaign as a draft. It will not be visible or active on your store until you edit it and change the status to `Active`.
+  - **Scheduled:** You should not select this manually. The system will automatically set the campaign to `Scheduled` if you choose `Active` and set a future start date in the "Campaign Duration" section.
 
-1. Select eligible products or categories
-2. Set minimum inventory requirements
-3. Choose whether to apply to all variants
-4. Set individual product overrides
+::: info Learn More About Automation
+The status of your campaign is closely tied to the scheduling system, which uses WordPress Cron to automate activation and expiration.
 
-### Step 4: Customer Targeting
+**[Read the Full Guide: Scheduling & Automation &rarr;](../core-concepts/scheduling-and-automation.md)**
+:::
 
-1. Define eligible customer segments
-2. Set geographic restrictions if needed
-3. Choose customer groups (all, returning, VIP)
-4. Set usage limits per customer
+## Step 3: Set the Campaign Title
 
-## Advanced Configuration
+Give your campaign a clear and descriptive name. This is essential for identifying it later.
 
-### Conditional Logic
+![Set Campaign Title](./../public/scheduled-title.png)
 
-- **Inventory-Based**: Adjust discounts based on stock levels
-- **Seasonal Adjustments**: Modify tiers during peak periods
-- **Customer History**: Personalized discounts based on past behavior
-- **Competitive Response**: Dynamic pricing against competitors
+- **CAMPAIGN TITLE:** Enter a name for your campaign. This title will be visible to you in the "All Campaigns" list and may also be shown to customers in the cart totals section. Example: `T-Shirt Bulk Discount`.
 
-### A/B Testing
+## Step 4: Set the Discount Target
 
-- **Tier Structure**: Test different quantity breakpoints
-- **Discount Amounts**: Experiment with various discount levels
-- **Product Groupings**: Try different product combinations
-- **Messaging**: Test various promotional copy
+This crucial step defines which products in your store are eligible for the quantity discount.
 
-## Monitoring and Optimization
+![Set Discount Target](./../public/scheduled-target.png)
 
-### Key Metrics
+- **DISCOUNT TARGET:** This setting determines the scope of your discount. You can apply the discount to your entire store, specific products, categories, or tags.
 
-- **Average Order Value**: Track changes in order size
-- **Quantity Distribution**: Monitor which tiers are most popular
-- **Revenue Impact**: Measure total revenue generated
-- **Customer Behavior**: Analyze purchasing patterns
+::: info Learn More About Targeting
+The "Discount Target" setting is a powerful feature shared by all campaign types. We've created a dedicated guide to explain all of its options and conditional fields in detail.
 
-### Performance Analysis
+**[Read the Full Guide: Targeting & Conditions &rarr;](../core-concepts/targeting-and-conditions.md)**
+:::
 
-- **Tier Performance**: Identify most effective discount levels
-- **ROI by Tier**: Calculate profitability for each discount level
-- **Customer Segmentation**: Analyze which groups respond best
-- **Product Performance**: Track which items drive bulk purchases
+## Step 5: Define Quantity Tiers
 
-## Best Practices
+This is the core of the Quantity Based Discount. Here you will define the specific pricing levels for your promotion.
 
-### Tier Structure Design
+![Define Quantity Tiers](./../public/quantity-tier.png)
 
-- **Logical Breaks**: Use natural quantity breakpoints
-- **Incremental Benefits**: Ensure each tier offers meaningful savings
-- **Profit Margins**: Maintain profitability across all tiers
-- **Customer Psychology**: Consider what motivates bulk purchases
+You can create one or more tiers. Each tier has the following fields:
 
-### Discount Strategy
+- **Buy from (Min):** The minimum quantity of the item a customer must have in their cart to qualify for this tier's discount.
+- **to (Max):** The maximum quantity for this tier. **Leave this blank** for the final tier to mean "and up" (e.g., 11 or more).
+- **items, get (Value):** The numeric value of the discount.
+- **% / ৳ (Mode):** The type of discount to apply.
+  - **Percentage (%):** A percentage discount calculated on the price of each item.
+  - **Currency (৳):** A fixed amount deducted from the price of **each individual item**.
 
-- **Competitive Analysis**: Research competitor quantity discounts
-- **Profitability**: Calculate margins at each discount level
-- **Inventory Goals**: Align with stock management objectives
-- **Customer Value**: Consider lifetime value implications
+::: warning Fixed Amount Logic
+When using a fixed discount (e.g., `5৳`), the discount is applied **per item**. If a customer buys 4 items that qualify, they will receive a 5৳ discount on all 4 items.
+:::
 
-### Communication Strategy
+- **+ Add another tier:** Click this to add more pricing levels to your campaign.
 
-- **Clear Messaging**: Make tier structure easy to understand
-- **Visual Presentation**: Use charts or tables to show savings
-- **Urgency**: Create limited-time offers for bulk purchases
-- **Social Proof**: Highlight popular quantity choices
+### Example Tier Setup
 
-## Common Use Cases
+Here is an example of a multi-level discount for a product:
 
-### B2B Sales
+- **Tier 1:** Buy from `3` to `5` items, get `10` `%`
+- **Tier 2:** Buy from `6` to `10` items, get `15` `%`
+- **Tier 3:** Buy from `11` to ``items, get`20` `%`
 
-- **Purpose**: Encourage larger orders from business customers
-- **Tiers**: 10+, 25+, 50+, 100+ units
-- **Benefits**: Reduced per-unit costs, better margins
+## Step 6: Set the Campaign Duration (Optional)
 
-### Consumer Bulk Purchases
+A Quantity Discount can be run immediately or scheduled for a specific time period. This is a critical and powerful feature.
 
-- **Purpose**: Increase average order value
-- **Tiers**: 2+, 3+, 5+ items
-- **Benefits**: Higher revenue per transaction
+![Set the Campaign Duration](./../public/scheduled-duration.png)
 
-### Inventory Clearance
+- **To run the campaign immediately and indefinitely:** Leave the "Enable Scheduling" toggle OFF. The campaign will become active as soon as you save it (if its status is `Active`).
+- **To run the campaign for a specific period:** Turn the "Enable Scheduling" toggle ON and set your desired **Start Date**, **End Date**, and times. This is perfect for promotions like a "Weekend Bulk Special" or a month-long "Stock Up & Save" event.
 
-- **Purpose**: Move excess stock quickly
-- **Tiers**: Progressive discounts for larger quantities
-- **Benefits**: Faster inventory turnover
+::: tip Timezone Information
+All dates and times are based on the timezone you have configured in your main WordPress settings under **Settings → General → Timezone**.
 
-### Seasonal Promotions
+**[Read the Full Guide: Scheduling & Automation &rarr;](../core-concepts/scheduling-and-automation.md)**
+:::
 
-- **Purpose**: Maximize sales during peak periods
-- **Tiers**: Adjusted for seasonal demand
-- **Benefits**: Capitalize on shopping trends
+## Step 7: Save the Campaign
 
-## Implementation Examples
-
-### Example 1: Basic Tier Structure
-
-```
-1 item: No discount
-2-4 items: 10% off
-5-9 items: 15% off
-10+ items: 20% off
-```
-
-### Example 2: Category-Specific Tiers
-
-```
-Electronics:
-- 2+ items: 5% off
-- 5+ items: 12% off
-- 10+ items: 20% off
-
-Clothing:
-- 2+ items: 15% off
-- 5+ items: 25% off
-- 10+ items: 35% off
-```
-
-### Example 3: Customer Group Tiers
-
-```
-Regular Customers:
-- 2+ items: 10% off
-- 5+ items: 15% off
-
-VIP Customers:
-- 2+ items: 15% off
-- 5+ items: 25% off
-- 10+ items: 35% off
-```
-
-## Troubleshooting
-
-### Common Issues
-
-- **Discounts Not Applying**: Check product selection and tier rules
-- **Poor Performance**: Review tier structure and discount amounts
-- **Customer Confusion**: Simplify messaging and tier structure
-- **Technical Errors**: Verify campaign configuration and integration
-
-### Performance Optimization
-
-- **A/B Testing**: Experiment with different tier structures
-- **Discount Adjustment**: Fine-tune discount amounts based on data
-- **Tier Refinement**: Modify breakpoints for better performance
-- **Customer Feedback**: Gather input on tier preferences
+Once you have configured all the options, click the **Save Campaign** button at the top right of the page. After saving, you will be redirected back to the "All Campaigns" list.
 
 ## Next Steps
 
-- Learn about [Scheduled Discounts](./scheduled-discounts.md)
-- Explore [Early Bird Discounts](./early-bird-discounts.md)
-- Check the [Dashboard](../dashboard.md) for campaign monitoring
-- Review [Settings](../settings.md) for configuration options
+Next, learn how to create campaigns that create urgency by rewarding your first customers.
+
+- **[Creating an Early Bird Discount &rarr;](./early-bird-discounts.md)**

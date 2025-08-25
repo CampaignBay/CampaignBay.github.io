@@ -1,214 +1,113 @@
-# Early Bird Discounts
+# Campaign Type: Early Bird Discount
 
-## Overview
+An **Early Bird Discount** is a powerful marketing tool designed to create urgency and drive rapid sales by rewarding your first customers. The discount is based on the total number of **successful orders** that have already used the campaign.
 
-Early bird discounts reward customers who make purchases early in a campaign or product lifecycle. This strategy creates urgency, generates early revenue, and helps validate new products or services before full launch.
+This is the perfect campaign type for scenarios like:
 
-## Key Features
+- "50% off for the first 100 customers!"
+- "Launch Special: The first 50 orders get $20 off, the next 100 get $10 off."
+- Creating a flash sale with a limited number of available slots.
 
-### Time-Based Incentives
+::: warning Important: Order vs. Quantity
+An Early Bird discount is based on the number of **orders**, not the quantity of items purchased. If one customer buys 100 items in a single transaction, it only counts as **one** use toward the campaign's limit.
+:::
 
-- **Limited Duration**: Discounts available only during early stages
-- **Progressive Pricing**: Discounts decrease over time
-- **Countdown Timers**: Visual urgency indicators
-- **Early Access**: Exclusive benefits for first-time buyers
+This guide will walk you through every field required to set up this campaign type.
 
-### Discount Structure
+---
 
-- **Percentage Off**: Higher discounts for earliest purchases
-- **Fixed Amount Off**: Dollar savings that decrease over time
-- **Free Add-ons**: Bonus items for early adopters
-- **Priority Access**: First access to new products or features
+## Step 1: Select the Campaign Type
 
-## Setting Up Early Bird Discounts
+To begin, navigate to **Campaigns → Add Campaign**. The first field determines the core logic of your new promotion.
 
-### Step 1: Campaign Configuration
+![Select EarlyBird Discount Type](./../public/early-bird-type.png)
 
-1. Navigate to Campaigns section
-2. Select "Early Bird Discounts" as campaign type
-3. Enter campaign name and description
-4. Set campaign duration and early bird period
+- **SELECT DISCOUNT TYPE:** From the dropdown menu, choose **`EarlyBird Discount`**. This will reveal the specific fields needed for a sales-based tiered campaign.
 
-### Step 2: Discount Rules
+## Step 2: Set the Status
 
-1. Define early bird discount amount
-2. Set regular price after early bird period
-3. Choose discount type (percentage or fixed amount)
-4. Set maximum discount limits
+This field controls the current state of your campaign.
 
-### Step 3: Timing Configuration
+![Select Campaign Status](./../public/campaign-status.png)
 
-1. Set early bird start date and time
-2. Define early bird end date and time
-3. Set campaign end date
-4. Configure timezone settings
+- **SELECT STATUS:**
+  - **Active:** Choose this if you want the campaign to be live on your site (either immediately or on a future schedule).
+  - **Inactive:** Choose this to save the campaign as a draft. It will not be visible or active on your store until you edit it and change the status to `Active`.
+  - **Scheduled:** This status is automatically set by the system if you choose `Active` and set a future start date in the "Campaign Duration" section.
 
-### Step 4: Product Selection
+::: info Learn More About Automation
+The status of your campaign is closely tied to the scheduling system, which uses WordPress Cron to automate activation and expiration.
 
-1. Select eligible products or services
-2. Set inventory limits for early bird pricing
-3. Choose whether to apply to all variants
-4. Set individual product overrides
+**[Read the Full Guide: Scheduling & Automation &rarr;](../core-concepts/scheduling-and-automation.md)**
+:::
 
-## Advanced Configuration
+## Step 3: Set the Campaign Title
 
-### Conditional Logic
+Give your campaign a clear and descriptive name. This is essential for identifying it later.
 
-- **Inventory-Based**: Adjust early bird availability based on stock
-- **Demand-Based**: Modify discounts based on early response
-- **Customer History**: Personalized early bird offers
-- **Geographic**: Location-based early bird availability
+![Set Campaign Title](./../public/scheduled-title.png)
 
-### A/B Testing
+- **CAMPAIGN TITLE:** Enter a name for your campaign. This title is important as it will be visible to you in the "All Campaigns" list and may also be shown to customers in the cart totals section. Example: `New Product Launch Offer`.
 
-- **Discount Amounts**: Test different early bird discount levels
-- **Timing**: Experiment with early bird period duration
-- **Messaging**: Test various promotional copy
-- **Product Combinations**: Try different product groupings
+## Step 4: Set the Discount Target
 
-## Monitoring and Optimization
+This crucial step defines which products in your store are eligible for the early bird discount.
 
-### Key Metrics
+![Set Discount Target](./../public/scheduled-target.png)
 
-- **Early Bird Conversion**: Track early bird offer usage
-- **Revenue Velocity**: Monitor sales rate during early period
-- **Customer Acquisition**: Measure new customer sign-ups
-- **Price Sensitivity**: Analyze response to different discount levels
+- **DISCOUNT TARGET:** This setting determines the scope of your discount. You can apply the discount to your entire store, specific products, categories, or tags.
 
-### Performance Analysis
+::: info Learn More About Targeting
+The "Discount Target" setting is a powerful feature shared by all campaign types. We've created a dedicated guide to explain all of its options and conditional fields in detail.
 
-- **Early vs. Regular Performance**: Compare early bird to regular pricing
-- **Customer Behavior**: Analyze purchasing timing patterns
-- **ROI Calculation**: Measure campaign profitability
-- **Inventory Impact**: Track stock movement during early period
+**[Read the Full Guide: Targeting & Conditions &rarr;](../core-concepts/targeting-and-conditions.md)**
+:::
 
-## Best Practices
+## Step 5: Define Discount Tiers For First Sales
 
-### Timing Strategy
+This is the core of the Early Bird Discount. Here you will define the tiers based on the number of successful orders.
 
-- **Product Launch**: Align with new product releases
-- **Seasonal Events**: Use for holiday or seasonal campaigns
-- **Inventory Cycles**: Time with new stock arrivals
-- **Customer Behavior**: Consider when your audience is most active
+![Define Early Bird Tiers](./../public/early-bird-tier.png)
 
-### Discount Strategy
+- **For First [X] Sales (Max Orders):** This is the core of the Early Bird rule. Enter the maximum number of successful orders that are eligible for this tier. For example, entering `100` means "for the first 100 sales".
+- **give (Value):** The numeric value of the discount.
+- **% / ৳ (Mode):** The type of discount to apply (Percentage or Fixed Currency amount).
+- **+ Add another tier:** Click this to add multiple levels of Early Bird offers.
 
-- **Competitive Analysis**: Research competitor early bird offers
-- **Profit Margins**: Ensure early bird pricing maintains profitability
-- **Customer Value**: Consider customer lifetime value
-- **Market Positioning**: Align with brand positioning
+### How Tiers Work
 
-### Communication Strategy
+The tiers work sequentially. The system checks them in order based on their "Max Orders" value.
 
-- **Advance Notice**: Build anticipation before early bird period
-- **Urgency Messaging**: Create FOMO (fear of missing out)
-- **Clear Benefits**: Highlight advantages of early purchase
-- **Social Proof**: Show early adopter testimonials
+**Example Tier Setup:**
 
-## Common Use Cases
+- **Tier 1:** For First `100` Sales, give `50` `%`
+- **Tier 2:** For First `250` Sales, give `25` `%`
 
-### Product Launches
+**In this scenario:**
 
-- **Purpose**: Generate early revenue and validate demand
-- **Duration**: 1-2 weeks early bird period
-- **Benefits**: Market validation, early cash flow
+- Orders 1 through 100 will receive a 50% discount.
+- Orders 101 through 250 will receive a 25% discount.
+- Order 251 and beyond will receive no discount.
 
-### Event Registrations
+## Step 6: Set the Campaign Duration (Optional)
 
-- **Purpose**: Encourage early commitment
-- **Duration**: 2-4 weeks early bird period
-- **Benefits**: Better planning, guaranteed attendance
+An Early Bird discount can be run immediately or, more powerfully, **scheduled** for a future date.
 
-### Course or Service Launches
+![Set the Campaign Duration](./../public/scheduled-duration.png)
 
-- **Purpose**: Build early momentum and community
-- **Duration**: 1-3 weeks early bird period
-- **Benefits**: Early feedback, community building
+- **To run the campaign immediately:** Leave the "Enable Scheduling" toggle OFF. The usage counter will begin tracking sales as soon as you save the campaign.
+- **To run the campaign for a specific period:** Turn the "Enable Scheduling" toggle ON and set your desired **Start Date**, **End Date**, and times.
 
-### Seasonal Campaigns
+::: tip Use Case for Scheduling
+Scheduling an Early Bird offer is perfect for a product launch or a Black Friday promotion. You can build hype for days or weeks, and the usage counter will **only begin tracking sales after the scheduled start time**.
+:::
 
-- **Purpose**: Capture early seasonal demand
-- **Duration**: 1-2 weeks early bird period
-- **Benefits**: Extended selling season, better margins
+## Step 7: Save the Campaign
 
-## Implementation Examples
-
-### Example 1: Basic Early Bird Structure
-
-```
-Week 1-2: Early Bird - 25% off
-Week 3-4: Regular Price - No discount
-Week 5+: End of Campaign
-```
-
-### Example 2: Progressive Early Bird
-
-```
-Days 1-3: Super Early Bird - 30% off
-Days 4-7: Early Bird - 20% off
-Days 8-14: Regular Price - No discount
-Days 15+: End of Campaign
-```
-
-### Example 3: Limited Quantity Early Bird
-
-```
-First 100 customers: Early Bird - 25% off
-Next 200 customers: Regular Price - No discount
-Remaining inventory: End of Campaign
-```
-
-## Customer Psychology
-
-### Urgency Factors
-
-- **Limited Time**: Creates immediate action motivation
-- **Limited Quantity**: Adds scarcity to the offer
-- **Exclusive Access**: Makes customers feel special
-- **Social Proof**: Shows others are taking advantage
-
-### Value Perception
-
-- **Savings Highlight**: Emphasize money saved
-- **Exclusive Benefits**: Highlight early adopter advantages
-- **Risk Reduction**: Show benefits of early commitment
-- **Community Building**: Emphasize being part of early group
-
-## Troubleshooting
-
-### Common Issues
-
-- **Poor Early Bird Response**: Review discount amount and timing
-- **Customer Confusion**: Simplify messaging and offer structure
-- **Technical Errors**: Check campaign configuration and integration
-- **Inventory Issues**: Verify stock availability and limits
-
-### Performance Optimization
-
-- **A/B Testing**: Experiment with different configurations
-- **Timing Adjustment**: Modify early bird period based on data
-- **Discount Optimization**: Adjust discount amounts for better ROI
-- **Messaging Refinement**: Improve promotional copy and urgency
-
-## Success Metrics
-
-### Conversion Metrics
-
-- **Early Bird Conversion Rate**: Percentage who use early bird offer
-- **Overall Campaign Conversion**: Total campaign performance
-- **Revenue per Customer**: Average order value during early period
-- **Customer Acquisition Cost**: Cost to acquire new customers
-
-### Business Impact
-
-- **Cash Flow**: Early revenue generation
-- **Inventory Turnover**: Faster product movement
-- **Customer Loyalty**: Early adopter retention rates
-- **Market Validation**: Demand confirmation for new products
+Once you have configured all the options, click the **Save Campaign** button at the top right of the page. After saving, you will be redirected back to the "All Campaigns" list.
 
 ## Next Steps
 
-- Learn about [Scheduled Discounts](./scheduled-discounts.md)
-- Explore [Quantity Discounts](./quantity-discounts.md)
-- Check the [Dashboard](../dashboard.md) for campaign monitoring
-- Review [Settings](../settings.md) for configuration options
+You've now learned about all the campaign types. It's time to understand the global settings that control your entire discount system.
+
+- **[Configuring the Settings &rarr;](../settings.md)**

@@ -1,59 +1,56 @@
-# Understanding the CampaignBay Engine
+# Core Concepts: The Discount Engine
 
-## Overview
+The heart of CampaignBay is its powerful pricing engine. To get the most out of the plugin, it's helpful to understand the rules and logic it uses to apply discounts. This guide explains how the engine prioritizes campaigns and handles stacking.
 
-CampaignBay is a powerful campaign management engine designed to automate and optimize your marketing campaigns. At its core, the engine provides intelligent scheduling, dynamic pricing, and automated campaign execution.
+## The Calculation Flow
 
-## Core Components
+When a customer views a product or updates their cart, the CampaignBay engine performs a series of steps in a specific order:
 
-### 1. Campaign Scheduler
+1.  **Gathers Candidates:** It finds all `Active` campaigns that are applicable to a product based on its targeting rules (e.g., the product is in a targeted category).
+2.  **Checks Exclusions:** It checks global settings, like "Exclude Sale Items," to remove any campaigns that shouldn't apply.
+3.  **Determines the Best Discount:** It evaluates all remaining "candidate" campaigns to find the best possible price for the customer.
+4.  **Applies Discounts:** It applies the final calculated discounts to the products in the cart.
 
-The intelligent scheduler manages when campaigns run, ensuring optimal timing for maximum engagement and conversion rates.
+## Conflict Resolution: Finding the Best Discount
 
-### 2. Dynamic Pricing Engine
+What happens when multiple campaigns apply to the same product? For example, a "10% Off All T-Shirts" campaign and a "20% Off Store-Wide" sale.
 
-Automatically adjusts pricing based on various factors including:
+This is controlled by the **Conflict Resolution** setting.
 
-- Inventory levels
-- Customer behavior patterns
-- Market demand
-- Seasonal trends
+![Product Exclusion & Prioritization Settings](./../public/settings-product-exclusion.png)
 
-### 3. Automation Hub
+- **Apply Highest Discount (Default):** This is the most common setting. The engine will calculate the final price for every applicable campaign and apply only the one that gives the customer the **biggest saving** (i.e., the lowest final price). In the example above, the 20% store-wide discount would be applied.
 
-Handles all automated tasks including:
+- **Apply Lowest Discount:** This is a less common setting. The engine will apply only the campaign that gives the customer the **smallest saving**.
 
-- Email notifications
-- Social media posts
-- Inventory updates
-- Performance reporting
+## Stacking: Combining Multiple Discounts
 
-## How It Works
+Stacking allows you to layer different _types_ of discounts on top of each other for even more powerful promotions. This is controlled by the stacking settings in the "Cart Settings" tab.
 
-1. **Campaign Creation**: Define your campaign parameters and goals
-2. **Engine Analysis**: The system analyzes historical data and current conditions
-3. **Optimization**: Automatically adjusts campaign parameters for best performance
-4. **Execution**: Runs campaigns with real-time monitoring and adjustments
-5. **Reporting**: Provides detailed analytics and insights
+![Cart Discount Options](./../public/settings-cart-options.png)
 
-## Key Benefits
+### 1. Stacking with WooCommerce Coupons
 
-- **Intelligent Automation**: Reduces manual work while improving results
-- **Data-Driven Decisions**: Uses real-time data to optimize performance
-- **Scalability**: Handles campaigns of any size efficiently
-- **Integration**: Works seamlessly with existing marketing tools
+- **`Allow Stacking with WooCommerce Coupons`:** This setting controls the interaction with native WooCommerce coupons.
+  - **If OFF (Default):** The systems are mutually exclusive. If a CampaignBay discount is active, coupons cannot be applied, and vice-versa.
+  - **If ON:** A customer can use a coupon code on top of a price that has already been discounted by CampaignBay.
 
-## Getting Started
+### 2. Stacking Campaign Types
 
-To begin using the CampaignBay engine:
+- **`Allow Stacking with Other Discount Campaigns`:** This setting controls how different _types_ of CampaignBay campaigns interact.
+  - **If OFF (Default):** Only the single best discount from any applicable campaign (Scheduled, Quantity, etc.) will be applied to a product.
+  - **If ON:** Discounts are applied in a specific, layered order:
+    1.  **First, the best "Simple" discount is applied.** The engine looks at all applicable `Scheduled` and `Early Bird` campaigns and applies the single best one.
+    2.  **Then, a "Quantity" discount is applied.** If a `Quantity` campaign also applies, its discount is calculated based on the _already discounted price_ from the first step.
 
-1. Set up your account and connect your data sources
-2. Configure your first campaign
-3. Monitor performance and adjust as needed
-4. Scale successful campaigns across your business
+::: warning Stacking Example
+Imagine a $100 product.
 
-## Next Steps
+- A **Scheduled** sale offers 10% off (new price: $90).
+- A **Quantity** discount for buying 3+ offers 20% off.
 
-- Learn about [Scheduling and Automation](./scheduling-and-automation.md)
-- Explore [Campaign Types](../campaigns/)
-- Check the [FAQ](../faq.md) for common questions
+If stacking is **ON** and the customer buys 3, the final price will be **$72**.
+($100 -> $90 from the scheduled sale -> $72 from the quantity discount applied to the $90 price).
+:::
+
+Understanding these core rules will help you build complex and predictable discount strategies for your store.

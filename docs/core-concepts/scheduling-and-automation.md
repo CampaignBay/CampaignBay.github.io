@@ -1,113 +1,72 @@
-# Scheduling and Automation
+# Core Concepts: Scheduling & Automation
 
-## Overview
+One of the most powerful features of CampaignBay is its ability to automatically start and stop your campaigns based on a schedule you define. This allows you to "set and forget" your promotions, ensuring they run exactly when you intend, even if you're not online.
 
-CampaignBay's scheduling and automation system is the backbone of efficient campaign management. It eliminates manual tasks while ensuring campaigns run at optimal times for maximum impact.
+This guide explains how this powerful automation works.
 
-## Smart Scheduling
+## How Scheduling Works: Statuses and Time
 
-### Time-Based Scheduling
+The automation is based on the interaction between two key settings on the "Add/Edit Campaign" page: the **Status** you select and the **Campaign Duration** you define.
 
-- **Peak Hours**: Automatically schedule campaigns during your audience's most active periods
-- **Time Zones**: Handle global campaigns with automatic timezone adjustments
-- **Seasonal Timing**: Leverage historical data to identify the best times for seasonal campaigns
+### The Status Field
 
-### Event-Based Scheduling
+The status you choose determines how the scheduling system will treat your campaign.
 
-- **Inventory Triggers**: Launch campaigns when stock levels change
-- **Customer Behavior**: Respond to customer actions with automated campaigns
-- **Market Conditions**: Adapt to external factors like competitor pricing or market trends
+![Campaign Status Options](./../public/scheduling-status-dropdown.png)
 
-## Automation Features
+- **`Active`**: A campaign set to `Active` is intended to be live **right now**. It will start applying discounts immediately, provided its start date (if any) is in the past and its end date has not yet been reached.
 
-### 1. Campaign Automation
+- **`Inactive`**: This is a **manual draft** status. A campaign set to `Inactive` is saved but will **never** run, regardless of its start or end dates. It is completely ignored by the discount engine until you manually change its status back to `Active` or `Scheduled`.
 
-- **Auto-Launch**: Campaigns start automatically based on predefined conditions
-- **Performance Monitoring**: Real-time tracking with automatic adjustments
-- **A/B Testing**: Automated testing of different campaign variations
+- **`Scheduled`**: This status tells the system that the campaign is **waiting to run in the future**. The plugin will monitor the "Start Time" and will automatically change the status to `Active` when that time is reached.
 
-### 2. Content Automation
+- **`Expired`**: This is an **automatic** status set by the system. You cannot select it manually. When an `Active` or `Scheduled` campaign's "End Time" is reached, the system will automatically change its status to `Expired`, and it will stop applying discounts.
 
-- **Dynamic Content**: Automatically personalize content based on customer data
-- **Template Management**: Use pre-built templates for consistent messaging
-- **Multi-Channel Distribution**: Automatically publish across all connected platforms
+### The Duration Fields
 
-### 3. Response Automation
+These fields are where you set the precise start and end times for your promotion.
 
-- **Customer Interactions**: Automated responses to common customer inquiries
-- **Follow-up Sequences**: Automatic follow-up campaigns based on customer actions
-- **Lead Nurturing**: Progressive campaigns that adapt to customer engagement levels
+![Campaign Duration Controls](./../public/scheduling-ui-controls.png)
 
-## Setting Up Automation
+- **Start Time / End Date:** These dates and times are the triggers for the automation system.
 
-### Step 1: Define Triggers
+### The Automation Logic in Practice
 
-- Choose what events will activate your automation
-- Set conditions and thresholds
-- Define the sequence of actions
+Here is exactly how the system evaluates your campaigns:
 
-### Step 2: Configure Actions
+1.  **To activate a campaign:** The system looks for campaigns with the status **`Scheduled`**. When the current time passes the campaign's **Start Time**, its status is automatically changed to **`Active`**.
+2.  **To deactivate a campaign:** The system looks for campaigns with the status **`Active`** or **`Scheduled`**. When the current time passes the campaign's **End Time**, its status is automatically changed to **`Expired`**.
 
-- Select the campaigns to run
-- Set timing and frequency
-- Define fallback actions
+::: tip
+For a campaign that you want to start in the future, you must set its status to **`Scheduled`** in the dropdown.
+:::
 
-### Step 3: Monitor and Optimize
+::: info Timezone Information
+All dates and times are based on the timezone you have configured in your main WordPress settings under **Settings → General → Timezone**. The system automatically handles all UTC conversions for you.
+:::
 
-- Track automation performance
-- Adjust triggers and actions based on results
-- Scale successful automations
+## The Automation Engine: Built for Reliability
 
-## Best Practices
+CampaignBay uses a robust, two-part system to ensure your campaigns always run on time.
 
-### Timing Optimization
+### 1. WordPress Cron Events
 
-- Test different scheduling patterns
-- Use data to identify optimal timing
-- Consider your audience's timezone and habits
+When you save a campaign with a future start or end date, CampaignBay schedules a task (a "cron job") with WordPress. The built-in WordPress Cron system is designed to trigger these tasks at the precise moment they are due, automatically changing your campaign's status.
 
-### Content Personalization
+### 2. The CampaignBay Failsafe (Guaranteed Accuracy)
 
-- Segment your audience for targeted messaging
-- Use dynamic content to increase relevance
-- Test different messaging approaches
+We understand that some hosting environments or low-traffic sites can have an unreliable WordPress Cron system. To solve this, CampaignBay includes a powerful **failsafe mechanism**.
 
-### Performance Monitoring
+**You do not need to do anything to enable it—it's always working for you in the background.**
 
-- Set up alerts for automation performance
-- Regularly review and optimize automation rules
-- Track ROI of automated campaigns
+On a regular basis, our failsafe system manually checks all `Active` and `Scheduled` campaigns. If it finds any campaign where a scheduled time was missed (for example, due to a period of no site traffic), it will **immediately correct the status**.
 
-## Advanced Features
-
-### Machine Learning Integration
-
-- **Predictive Scheduling**: AI-powered timing recommendations
-- **Behavioral Analysis**: Automatic customer segmentation
-- **Performance Prediction**: Forecast campaign outcomes
-
-### Integration Capabilities
-
-- **CRM Systems**: Sync customer data automatically
-- **E-commerce Platforms**: Real-time inventory and sales data
-- **Marketing Tools**: Seamless integration with existing workflows
-
-## Troubleshooting
-
-### Common Issues
-
-- **Campaigns Not Starting**: Check trigger conditions and permissions
-- **Poor Performance**: Review timing and content optimization
-- **Integration Errors**: Verify API connections and data flow
-
-### Support Resources
-
-- Check the [FAQ](../faq.md) for common solutions
-- Review [Dashboard](../dashboard.md) for real-time monitoring
-- Access [Settings](../settings.md) for configuration options
+::: tip Peace of Mind
+This built-in failsafe guarantees that your campaign statuses will always be accurate, even if the underlying WordPress Cron system is disabled or experiences a delay. You can schedule your most important sales with confidence.
+:::
 
 ## Next Steps
 
-- Learn about [Campaign Types](../campaigns/)
-- Explore the [Dashboard](../dashboard.md) for monitoring tools
-- Configure your [Settings](../settings.md) for optimal automation
+Now that you understand how scheduling works, let's explore the final core concept of the plugin.
+
+- **[Learn about the Discount Engine &rarr;](./understanding-the-engine.md)**

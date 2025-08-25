@@ -1,254 +1,123 @@
 # Settings
 
-## Overview
+The Settings page contains all the global configuration options for the CampaignBay plugin. These settings control the default behavior of the discount engine, performance, display options, and more.
 
-The Settings section allows you to configure CampaignBay according to your business needs. From account management to system preferences, this is where you customize your experience and ensure optimal performance.
+The settings are organized into logical tabs for easy navigation. To save any changes you make, click the **Save Settings** button at the top right of the page.
 
-## Account Settings
+![Settings Page Header and Tabs](./public/settings-header-tabs.png)
 
-### Profile Information
+---
 
-- **Company Name**: Your business or organization name
-- **Contact Information**: Primary contact details
-- **Business Address**: Physical location for tax and shipping purposes
-- **Industry**: Your business sector for better recommendations
-- **Website**: Your company website URL
+## Global Settings
 
-### User Management
+The "Global Settings" tab contains the main operational controls for the entire plugin.
 
-- **Add Users**: Invite team members to your account
-- **User Roles**: Assign appropriate permissions to each user
-- **Access Levels**: Control what each user can see and modify
-- **User Activity**: Monitor user login and activity history
+### Global Options
 
-### Security Settings
+This section contains the master switch for the plugin and the default priority for your campaign rules.
 
-- **Password Policy**: Set strong password requirements
-- **Two-Factor Authentication**: Enable additional security layer
-- **Session Management**: Control login session duration
-- **IP Restrictions**: Limit access to specific IP addresses
+![Global Options Settings](./public/settings-global-options.png)
 
-## System Preferences
+- **Enable Discount Add-on:** This is the master "on/off" switch for CampaignBay. When this toggle is **ON**, the plugin is active and will apply discounts to your store. When it is **OFF**, the entire pricing engine is disabled, and no discounts will be calculated or applied. This is a safe way to temporarily disable all campaigns at once without deactivating the plugin.
 
-### General Settings
+- **Default Rule Priority:** This sets a default priority number for new campaigns. This is used by the discount engine to resolve conflicts when multiple campaigns could apply to the same product. A **lower number means a higher priority**. For example, a rule with priority `10` will be applied before a rule with priority `20`. The default is `10`.
 
-- **Default Timezone**: Set your primary timezone
-- **Date Format**: Choose your preferred date display format
-- **Currency**: Set default currency for calculations
-- **Language**: Select interface language
+### Performance & Caching
 
-### Notification Preferences
+These settings control the plugin's caching mechanisms, which are crucial for maintaining a fast storefront.
 
-- **Email Notifications**: Choose which emails to receive
-- **Push Notifications**: Enable in-app notifications
-- **SMS Alerts**: Set up text message notifications
-- **Alert Frequency**: Control how often you receive updates
+![Performance & Caching Settings](./public/settings-performance-caching.png)
 
-### Display Options
+- **Enable Discount Caching:** This option is **highly recommended** and is enabled by default. It activates the plugin's caching system, which stores the list of active campaigns in a temporary cache (a WordPress transient). This dramatically improves performance by preventing the plugin from querying the database on every single page load.
 
-- **Theme**: Light or dark mode preference
-- **Dashboard Layout**: Customize dashboard organization
-- **Widgets**: Choose which dashboard elements to show
-- **Data Refresh Rate**: Set how often data updates
+- **Clear Discount Cache:** If you ever make a change to a campaign and do not see it reflected on the frontend immediately, you can click this button to manually clear the campaign cache. The cache is automatically cleared whenever a campaign is saved, but this button provides a manual override for troubleshooting.
 
-## Campaign Settings
+### Debugging & Logging
 
-### Default Campaign Parameters
+This section provides tools for troubleshooting and support.
 
-- **Default Discount Types**: Set preferred discount structures
-- **Campaign Duration**: Default campaign length
-- **Targeting Options**: Default customer segmentation
-- **Performance Thresholds**: Set alert triggers
+![Debugging & Logging Settings](./public/settings-debugging-logging.png)
 
-### Automation Rules
+- **Enable Debug Mode:** When this is checked, the plugin will write detailed information about its processes (like which campaigns were found and what prices were calculated) to a dedicated log file. This is an invaluable tool for diagnosing issues.
 
-- **Auto-Pause**: Automatically pause underperforming campaigns
-- **Performance Alerts**: Set notification thresholds
-- **Auto-Optimization**: Enable automatic campaign adjustments
-- **Fallback Actions**: Define what happens when campaigns fail
+- **View Logs:** This button opens a modal window that displays the contents of today's log file in real-time. The newest entries appear at the top. This allows you to see what the plugin is doing without needing to access the server's file system.
 
-### A/B Testing
+- **Clear Log Files:** This button will permanently delete all `.log` files created by the CampaignBay plugin. This is useful for clearing out old data after a troubleshooting session is complete. You will be asked to confirm this action.
 
-- **Test Duration**: How long to run A/B tests
-- **Statistical Significance**: Set confidence level for test results
-- **Auto-Winner Selection**: Automatically select best performing variation
-- **Test Limits**: Maximum number of concurrent tests
+---
 
-## Integration Settings
+## Product Settings
 
-### E-commerce Platforms
+The "Product Settings" tab controls how discounts are displayed on your shop and single product pages, and how the plugin handles potential conflicts.
 
-- **Shopify**: Connect your Shopify store
-- **WooCommerce**: Link WordPress e-commerce site
-- **Magento**: Connect Magento store
-- **Custom API**: Configure custom integrations
+### Product Page Display
 
-### CRM Systems
+These settings manage the visual elements of your discounts on the frontend before the customer reaches the cart.
 
-- **Salesforce**: Connect customer relationship management
-- **HubSpot**: Link marketing automation platform
-- **Zoho CRM**: Connect Zoho customer management
-- **Custom CRM**: Set up custom CRM integration
+![Product Page Display Settings](./public/settings-product-display.png)
 
-### Marketing Tools
+- **Display Discounted Price:** When this is enabled (default), products with an active campaign discount will show a "sale" price format, with the original price crossed out and the new, lower price displayed. If you disable this, only the final, discounted price will be shown without indicating that it was on sale.
 
-- **Email Marketing**: Connect Mailchimp, Constant Contact, etc.
-- **Social Media**: Link Facebook, Instagram, Twitter accounts
-- **Analytics**: Connect Google Analytics, Facebook Pixel
-- **Advertising**: Link Google Ads, Facebook Ads accounts
+- **Product Page Schedule or Early Bird Discount Message Format:** This field allows you to customize the promotional message that appears on a single product page for "Scheduled" and "Early Bird" discounts. You can use dynamic placeholders which will be automatically replaced with the calculated values.
 
-### API Configuration
+  - `{percentage_off}`: Will be replaced by the calculated percentage discount (e.g., "20%").
+  - `{amount_off}`: Will be replaced by the calculated fixed amount saved (e.g., "5.00৳").
 
-- **API Keys**: Manage integration API credentials
-- **Webhooks**: Configure real-time data updates
-- **Rate Limits**: Set API call frequency limits
-- **Error Handling**: Configure error response actions
+  _Example: The default "You save {percentage_off}!" will display as "You save 20%!" on the product page._
 
-## Data Management
+### Product Exclusion & Prioritization
 
-### Data Import/Export
+These are important rules that control how the discount engine behaves when it encounters conflicts.
 
-- **Customer Data**: Import existing customer database
-- **Product Information**: Bring in product catalog
-- **Sales History**: Import historical transaction data
-- **Export Options**: Download data in various formats
+![Product Exclusion & Prioritization Settings](./public/settings-product-exclusion.png)
 
-### Data Retention
+- **Automatically Exclude Sale Items from Campaigns:** This is a crucial setting to prevent "double-discounting." When this is enabled (default), CampaignBay will **not** apply its own discount to any product that already has a native WooCommerce "Sale Price".
 
-- **Customer Records**: How long to keep customer data
-- **Transaction History**: Retention period for sales data
-- **Campaign Data**: How long to store campaign information
-- **Log Files**: System log retention settings
+- **Product Page Discount Message Format (Conflict Resolution):** This setting tells the plugin what to do when **multiple** of your campaigns could apply to the same product.
+  - **Apply Highest Discount:** This is the default and most common setting. The plugin will calculate the final price for all applicable campaigns and apply only the one that gives the customer the biggest discount (i.e., the lowest final price).
+  - **Apply Lowest Discount:** The plugin will apply only the campaign that gives the customer the smallest discount.
+  - **Apply Based on Priority:** (If you implement this) This would use the "Default Rule Priority" number to decide which campaign wins.
 
-### Data Privacy
+---
 
-- **GDPR Compliance**: European data protection compliance
-- **Data Encryption**: Security for sensitive information
-- **Access Logs**: Track who accesses customer data
-- **Data Deletion**: Process for removing customer data
+## Cart Settings
 
-## Billing and Subscription
+The "Cart Settings" tab controls how your discounts interact with the WooCommerce cart, including stacking rules and promotional messages.
 
-### Plan Management
+### Cart Discount Options
 
-- **Current Plan**: View your subscription details
-- **Plan Features**: See what's included in your plan
-- **Usage Limits**: Monitor your plan usage
-- **Upgrade/Downgrade**: Change your subscription level
+These settings define how your campaigns interact with other discounts, both from WooCommerce itself and from other CampaignBay campaigns.
 
-### Payment Methods
+![Cart Discount Options](./public/settings-cart-options.png)
 
-- **Credit Cards**: Add or update payment methods
-- **Billing Address**: Set billing address for invoices
-- **Tax Information**: Configure tax settings
-- **Invoice Preferences**: Set invoice delivery options
+- **Allow Stacking with WooCommerce Coupons:** This is a powerful two-way rule.
 
-### Billing History
+  - When **enabled**, customers can use a native WooCommerce coupon code in addition to any automatic discounts applied by CampaignBay.
+  - When **disabled** (default), the two systems are mutually exclusive. If a CampaignBay discount is active in the cart, a user will be blocked from applying a coupon. Conversely, if a user has already applied a coupon, CampaignBay discounts will not be applied. A clear notice is shown to the customer in both cases.
 
-- **Past Invoices**: View previous billing statements
-- **Payment History**: Track payment transactions
-- **Usage Reports**: Monitor feature usage over time
-- **Cost Analysis**: Analyze your spending patterns
+- **Allow Stacking with Other Discount Campaigns:** This setting controls how different _types_ of CampaignBay campaigns interact.
+  - When **enabled**, discounts can be layered. For example, a "Scheduled" discount could be applied first, and then a "Quantity" discount could be applied on top of that already-discounted price.
+  - When **disabled** (default), only the single best discount from any applicable campaign will be applied to a product.
 
-## Advanced Settings
+### Cart Display & Promotion
 
-### Performance Optimization
+These settings control the messages and promotional elements displayed on the cart page.
 
-- **Cache Settings**: Configure data caching preferences
-- **Data Processing**: Set data update frequencies
-- **Background Jobs**: Configure automated task scheduling
-- **Resource Limits**: Set system resource usage limits
+![Cart Display & Promotion Settings](./public/settings-cart-display.png)
 
-### Custom Fields
+- **Show 'Next Discount' Progress bar in Cart:** When enabled, this will display a dynamic, inline message under a product in the cart if it's part of a "Quantity Based Discount". It intelligently prompts the user to add more items to their cart to reach the next discount tier.
 
-- **Customer Attributes**: Add custom customer data fields
-- **Product Properties**: Define custom product characteristics
-- **Campaign Parameters**: Create custom campaign settings
-- **Integration Fields**: Map custom data between systems
+- **'Next Discount' Message Format:** Customize the text of the "add more to save" message. You can use dynamic placeholders:
 
-### Workflow Automation
+  - `{remaining_quantity}`: Will be replaced by the number of additional items the customer needs to add (e.g., "2").
+  - `{discount_percentage}`: Will be replaced by the discount they will receive at the next tier (e.g., "15% off").
 
-- **Trigger Rules**: Define when automations activate
-- **Action Sequences**: Set up multi-step automation workflows
-- **Condition Logic**: Create complex automation conditions
-- **Error Handling**: Define automation failure responses
+- **Display Applied Discount Details in Cart Summary:** This is a highly recommended setting. When enabled, the cart totals section will show a separate, itemized line for each campaign that contributed to the total savings. This provides maximum clarity for the customer. If disabled, only the final reduced total will be shown without a breakdown.
 
-## Backup and Recovery
-
-### Data Backup
-
-- **Backup Frequency**: How often to backup your data
-- **Backup Location**: Where to store backup files
-- **Backup Content**: What data to include in backups
-- **Backup Verification**: Ensure backup integrity
-
-### Recovery Options
-
-- **Point-in-Time Recovery**: Restore to specific dates
-- **Selective Recovery**: Restore specific data types
-- **Test Recovery**: Verify recovery procedures work
-- **Recovery Documentation**: Document recovery processes
-
-## Support and Maintenance
-
-### System Health
-
-- **Performance Monitoring**: Track system performance metrics
-- **Error Logging**: Monitor system errors and issues
-- **Integration Status**: Check health of connected systems
-- **Maintenance Schedule**: View planned maintenance windows
-
-### Support Access
-
-- **Support Tickets**: Submit and track support requests
-- **Knowledge Base**: Access help documentation
-- **Community Forum**: Connect with other users
-- **Training Resources**: Access learning materials
-
-## Getting Help
-
-### Documentation
-
-- **User Guides**: Step-by-step instructions
-- **Video Tutorials**: Visual learning resources
-- **Best Practices**: Optimization recommendations
-- **API Reference**: Technical integration documentation
-
-### Contact Support
-
-- **Live Chat**: Real-time assistance
-- **Email Support**: Detailed issue reporting
-- **Phone Support**: Direct communication
-- **Emergency Support**: Critical issue resolution
-
-## Best Practices
-
-### Security
-
-- **Regular Password Updates**: Change passwords periodically
-- **Access Review**: Regularly review user access levels
-- **Security Monitoring**: Monitor for suspicious activity
-- **Backup Verification**: Test backup and recovery procedures
-
-### Performance
-
-- **Regular Maintenance**: Schedule routine system maintenance
-- **Data Cleanup**: Remove unnecessary data regularly
-- **Integration Health**: Monitor connected system status
-- **Performance Monitoring**: Track system performance trends
-
-### Compliance
-
-- **Data Privacy**: Ensure compliance with privacy regulations
-- **Audit Logs**: Maintain comprehensive activity logs
-- **Documentation**: Keep settings and procedures documented
-- **Regular Reviews**: Periodically review compliance status
+---
 
 ## Next Steps
 
-- Explore the [Dashboard](../dashboard.md) to see your settings in action
-- Learn about [Core Concepts](../core-concepts/) to understand the platform
-- Review [Campaign Types](../campaigns/) to create effective campaigns
-- Check the [FAQ](../faq.md) for common questions
+You have now learned about all the global settings. The final step is to read our guide on the core concepts that power the discount engine.
 
-Proper configuration of your settings ensures optimal performance and security. Take time to review and customize these options for your business needs!
+- **[Learn about the Discount Engine &rarr;](./core-concepts/understanding-the-engine.md)**

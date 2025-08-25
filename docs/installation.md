@@ -27,7 +27,7 @@ First, download the latest version of the CampaignBay plugin. You should have a 
 
 Log in to your WordPress admin dashboard. In the left-hand menu, navigate to **Plugins → Add New**.
 
-![Navigate to the Add New Plugin screen](upload-plugin.png)
+![Navigate to the Add New Plugin screen](./public/upload-plugin.png)
 
 ### Step 3: Upload the Plugin File
 
@@ -37,7 +37,7 @@ On the "Add Plugins" page, click the **Upload Plugin** button at the top of the 
 
 After selecting the file, click the **Install Now** button. WordPress will upload and unpack the plugin. Once it's finished, you will see a success screen. Click the blue **Activate Plugin** button to complete the installation.
 
-![Activate the plugin after successful installation](activate-plugin.png)
+![Activate the plugin after successful installation](./public/activate-plugin.png)
 
 ### Step 5: Verify the Installation
 
@@ -45,7 +45,7 @@ That's it! The installation is complete. You will be redirected to the main Plug
 
 To verify that CampaignBay is ready to use, look for the new **"Campaigns"** menu item in your WordPress admin sidebar.
 
-![The CampaignBay menu item in the admin sidebar](admin-menu-item.png)
+![The CampaignBay menu item in the admin sidebar](./public/admin-menu-item.png)
 
 ## Troubleshooting
 

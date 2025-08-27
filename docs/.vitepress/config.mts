@@ -7,7 +7,7 @@ export default defineConfig({
   
   // Enhanced head configuration
   head: [
-    ['link', { rel: 'icon', href: './logo-2.png' }],
+    ['link', { rel: 'icon', href: '/logo-2.png' }],
     ['meta', { name: 'theme-color', content: '#3a86ff' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     ['link', { rel: 'stylesheet', href: 'https://unpkg.com/medium-zoom/dist/style.css' }],
@@ -79,7 +79,7 @@ export default defineConfig({
   // Enhanced theme configuration
   themeConfig: {
     // Logo configuration
-    logo: './logo-2.png',
+    logo: '/logo-2.png',
     
     // Enhanced search
     search: {

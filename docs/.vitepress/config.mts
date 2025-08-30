@@ -118,14 +118,6 @@ export default defineConfig({
       { text: 'Introduction', link: '/installation' },
       { text: 'Dashboard', link: '/dashboard' },
       {
-        text: 'Core Concepts',
-        items: [
-          { text: 'The Discount Engine', link: '/core-concepts/understanding-the-engine' },
-          { text: 'Scheduling & Automation', link: '/core-concepts/scheduling-and-automation' },
-          { text: 'Targeting & Conditions', link: '/core-concepts/targeting-and-conditions' },
-        ]
-      },
-      {
         text: 'Campaigns', // This is now a collapsible group
         items: [
           { text: 'All Campaigns', link: '/campaigns/' }, // The main list view
@@ -140,6 +132,15 @@ export default defineConfig({
         ]
       },
       { text: 'Settings', link: '/settings' },
+
+      {
+        text: 'Core Concepts',
+        items: [
+          { text: 'The Discount Engine', link: '/core-concepts/understanding-the-engine' },
+          { text: 'Scheduling & Automation', link: '/core-concepts/scheduling-and-automation' },
+          { text: 'Targeting & Conditions', link: '/core-concepts/targeting-and-conditions' },
+        ]
+      },
       { text: 'FAQ', link: '/faq' },
     ],
 

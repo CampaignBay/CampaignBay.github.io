@@ -1,89 +1,84 @@
 # All Campaigns
 
-The "All Campaigns" page is your central hub for managing and organizing all the discount campaigns you create. From this screen, you can view, filter, sort, and perform actions on your campaigns.
+The "All Campaigns" page is your central hub for managing and organizing all the discount campaigns you create. From this screen, you can view, filter, sort, and perform actions on your campaigns using either a detailed Table View or a more visual Grid View.
 
 ### Page Header
 
-The header provides the page title and the primary action for creating a new campaign.
+The header provides the page title and primary actions for creating and managing campaigns.
 
 ![All Campaigns Page Header](./../public/campaigns-header.png)
 
 - **Campaigns Title:** The main title of the page.
+- **Import / Export:** These buttons open a modal window for bulk importing and exporting campaigns.
 - **Add Campaign +:** This button will take you to the "Add Campaign" screen, where you can create a new discount from scratch.
-
----
 
 ## Filtering and Searching
 
-A powerful set of tools is available to help you find specific campaigns quickly, especially if you have a large number.
+A powerful set of tools is available to help you find specific campaigns quickly.
 
 ![Campaign Filters and Search Bar](./../public/campaigns-filters.png)
 
-1.  **Bulk Actions:** This dropdown is used to perform actions on multiple campaigns at once. To use it, first select the campaigns you want to modify using the checkboxes in the first column of the table. The available actions are:
+1.  **Bulk Actions:** This dropdown allows you to perform an action on multiple campaigns at once.
 
-    - **Activate:** Changes the status of the selected campaigns to `Active`.
-    - **Deactivate:** Changes the status of the selected campaigns to `Inactive`.
-    - **Delete:** Permanently deletes the selected campaigns. A confirmation will be required.
+    - **How to use:** First, select the campaigns you want to modify using the checkboxes. Then, choose an action (`Activate`, `Deactivate`, or `Delete`) from this dropdown. Finally, click the **Apply** button to execute the action. A confirmation will be required for destructive actions like deleting.
 
-2.  **Filter by Status:** This dropdown allows you to view campaigns that match a specific status (e.g., show only `Active` or `Scheduled` campaigns).
+2.  **Filter by Status & Filter by Type:** Use these dropdowns to narrow down the list of visible campaigns. You can filter by status (`Active`, `Inactive`, etc.) or by campaign type (`Scheduled`, `Quantity`, etc.). After making your selections, click the **Apply** button to see the filtered results.
 
-3.  **Filter by Type:** This dropdown allows you to view campaigns of a specific type (e.g., show only `Quantity` or `Earlybird` discounts).
+3.  **View Toggle:** Switch between the detailed **Table View** and the visual **Grid View**. This setting is automatically saved for your next visit.
 
-4.  **Apply:** After selecting your desired bulk action or filters, click this button to apply them.
+4.  **Search Campaign:** This is an instant search field. Simply start typing a campaign's name, and the list will update in real-time to show you matching results.
 
-5.  **Search Campaign:** Use this field to find a campaign by its name. The table will update as you type to show matching results.
+## Table View
 
----
+The Table View provides a dense, data-rich overview of all your campaigns, with sortable columns for easy organization.
 
-## The Campaigns Table
-
-The main table provides a detailed overview of all your campaigns.
+![Campaigns Table View](./../public/campaigns-table-view.png)
 
 ### Table Columns
 
-![Campaigns Table Header](./../public/campaigns-table-header.png)
-
-- **Checkbox:** Used to select one or more campaigns for bulk actions. Click the checkbox in the header to select all campaigns on the current page.
-- **Campaign Name:** The title you gave your campaign. Clicking the name will take you to the edit screen for that campaign.
-- **Status:** The current status of the campaign. See the different statuses below.
-- **Campaign Type:** The core logic of the campaign (e.g., `Scheduled`, `Quantity`, `Earlybird`).
-- **Target:** The scope of the campaign (e.g., `Entire Store`, `Selected Categories`).
-- **Value:** The primary discount value (e.g., `50%` or `$10`). For tiered discounts, this typically shows the value for the first tier.
-- **Start Date / End Date:** The scheduled start and end times for the campaign. An em-dash (`—`) indicates that no date is set.
+- **Checkbox:** Used to select campaigns for bulk actions.
+- **Campaign Name:** The title of your campaign. Clicking the name will take you to the edit screen.
+- **Status:** The current status of the campaign (e.g., `Active`, `Inactive`).
+- **Campaign Type:** The core logic of the campaign (e.g., `Scheduled`, `Quantity`).
+- **Target:** The scope of the campaign (e.g., `Entire Store`, `Selected Products`).
+- **Value:** The primary discount value.
+- **Start Date / End Date:** The scheduled start and end times. An em-dash (`—`) indicates no date is set.
 - **Usage:** The number of times a campaign has been successfully applied to a completed order.
-- **Last Modified:** The date and time the campaign was last saved.
-- **Action:** Provides a menu of actions for the specific campaign in that row.
-
-### Understanding the Data
-
-The table provides an at-a-glance view of your campaigns, including their different statuses.
-
-![Example of Campaigns in the Table](./../public/campaigns-table-view.png)
-
-- **Scheduled:** The campaign is set to start at a future date.
-- **Active:** The campaign is currently running and applying discounts.
-- **Expired:** The campaign's end date has passed.
-- **Inactive:** The campaign is saved as a draft and is not active.
+- **Last Modified:** How long ago the campaign was last saved.
 
 ### Row Actions
 
-To manage an individual campaign, click the three-dot icon in the "Action" column.
+To manage an individual campaign, click the three-dot icon at the end of the row.
 
 ![Campaign Row Actions Menu](./../public/campaigns-row-actions.png)
 
-- **Edit:** Opens the "Edit Campaign" screen for this specific campaign.
-- **Delete:** Permanently deletes this campaign after a confirmation.
+- **Edit:** Opens the "Edit Campaign" screen.
+- **Duplicate:** Creates an exact copy of the campaign and opens it for editing.
+- **Delete:** Permanently deletes the campaign after a confirmation.
 
----
+## Grid View
 
-## Table Footer & Pagination
+The Grid View offers a more visual, card-based layout for your campaigns, providing key information at a glance.
+
+![Campaigns Grid View](./../public/campaigns-grid-view.png)
+
+Each card in the grid displays the most important details about a campaign:
+
+- **Checkbox and Action Menu:** For bulk actions and individual actions.
+- **Campaign Name:** The title of the campaign.
+- **Status:** The current status shown as a colored pill.
+- **Key Details:** Icons display the Campaign Type, Target, Value, and Usage count.
+- **Schedule:** Start and End dates are clearly listed.
+- **Last Modified:** Shows how long ago the campaign was updated.
+
+## Page Footer & Pagination
 
 The footer provides tools for managing the view when you have a large number of campaigns.
 
-![Campaigns Table Footer and Pagination Controls](./../public/campaigns-footer-pagination.png)
+![Campaigns Page Footer](./../public/campaigns-footer.png)
 
-- **Show Campaigns per page:** This dropdown allows you to control how many campaigns are displayed on a single page.
-- **Pagination:** Use the page selector and arrow buttons to navigate between different pages of your campaign list.
+- **Show Campaigns per page:** Control how many campaigns are displayed on a single page.
+- **Pagination:** Use the page selector and arrow buttons to navigate between pages of your campaign list.
 
 ## Next Steps
 

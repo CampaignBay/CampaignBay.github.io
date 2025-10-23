@@ -1,56 +1,78 @@
-# Core Concepts: The Discount Engine
+# Core Concepts: The Discount Engine & Stacking
 
-The heart of CampaignBay is its powerful pricing engine. To get the most out of the plugin, it's helpful to understand the rules and logic it uses to apply discounts. This guide explains how the engine prioritizes campaigns and handles stacking.
+The heart of CampaignBay is its powerful pricing engine. To get the most out of the plugin, it's essential to understand the rules it uses to calculate and prioritize discounts, especially when multiple campaigns apply to the same products.
 
-## The Calculation Flow
+This guide explains the different discount groups, how the engine handles conflicts, and how stacking works.
 
-When a customer views a product or updates their cart, the CampaignBay engine performs a series of steps in a specific order:
+## The Discount Groups
 
-1.  **Gathers Candidates:** It finds all `Active` campaigns that are applicable to a product based on its targeting rules (e.g., the product is in a targeted category).
-2.  **Checks Exclusions:** It checks global settings, like "Exclude Sale Items," to remove any campaigns that shouldn't apply.
-3.  **Determines the Best Discount:** It evaluates all remaining "candidate" campaigns to find the best possible price for the customer.
-4.  **Applies Discounts:** It applies the final calculated discounts to the products in the cart.
+CampaignBay organizes discounts into distinct groups that are processed in a specific order.
 
-## Conflict Resolution: Finding the Best Discount
+1.  **Product-Level Discounts:** These campaigns apply a direct price change to an individual product.
 
-What happens when multiple campaigns apply to the same product? For example, a "10% Off All T-Shirts" campaign and a "20% Off Store-Wide" sale.
+    - Includes: `Scheduled Discount`, `Early Bird Discount`.
 
-This is controlled by the **Conflict Resolution** setting.
+2.  **Cart-Level Discounts:** These campaigns apply a discount based on the contents of the entire cart, like the quantity of items.
 
-![Product Exclusion & Prioritization Settings](./../public/settings-product-exclusion.png)
+    - Includes: `Quantity Based Discount`.
 
-- **Apply Highest Discount (Default):** This is the most common setting. The engine will calculate the final price for every applicable campaign and apply only the one that gives the customer the **biggest saving** (i.e., the lowest final price). In the example above, the 20% store-wide discount would be applied.
+3.  **Special Discounts:** These campaigns operate with their own unique logic and do not typically stack with other discounts.
+    - Includes: `BOGO (Buy X Get X) Discount`.
 
-- **Apply Lowest Discount:** This is a less common setting. The engine will apply only the campaign that gives the customer the **smallest saving**.
+## Step 1: Finding the Best Product-Level Discount
 
-## Stacking: Combining Multiple Discounts
+What happens if a product is eligible for both a "20% Off Store-Wide" (`Scheduled`) campaign and a "50% Off for the first 100 sales" (`Early Bird`) campaign?
 
-Stacking allows you to layer different _types_ of discounts on top of each other for even more powerful promotions. This is controlled by the stacking settings in the "Cart Settings" tab.
+The engine first finds the single best discount from the **Product-Level group**. This is controlled by the **"Handle Multiple Product Discounts"** setting, found in **Settings → Product Settings**.
 
-![Cart Discount Options](./../public/settings-cart-options.png)
+![Conflict Resolution Setting](./../public/settings-conflict-resolution.png)
 
-### 1. Stacking with WooCommerce Coupons
+- **Apply Highest Discount (Default):** The engine calculates the final price for all applicable `Scheduled` and `Early Bird` campaigns and applies **only the one that gives the customer the biggest saving**. In the example above, the 50% Early Bird discount would win.
 
-- **`Allow Stacking with WooCommerce Coupons`:** This setting controls the interaction with native WooCommerce coupons.
-  - **If OFF (Default):** The systems are mutually exclusive. If a CampaignBay discount is active, coupons cannot be applied, and vice-versa.
-  - **If ON:** A customer can use a coupon code on top of a price that has already been discounted by CampaignBay.
+- **Apply Lowest Discount:** The engine applies only the campaign that gives the customer the smallest saving.
 
-### 2. Stacking Campaign Types
+At the end of this step, the engine has determined the single "best" product-level discount.
 
-- **`Allow Stacking with Other Discount Campaigns`:** This setting controls how different _types_ of CampaignBay campaigns interact.
-  - **If OFF (Default):** Only the single best discount from any applicable campaign (Scheduled, Quantity, etc.) will be applied to a product.
-  - **If ON:** Discounts are applied in a specific, layered order:
-    1.  **First, the best "Simple" discount is applied.** The engine looks at all applicable `Scheduled` and `Early Bird` campaigns and applies the single best one.
-    2.  **Then, a "Quantity" discount is applied.** If a `Quantity` campaign also applies, its discount is calculated based on the _already discounted price_ from the first step.
+## Step 2: Stacking Between Discount Groups
 
-::: warning Stacking Example
-Imagine a $100 product.
+Next, the engine decides how to handle the winning Product-Level discount and any applicable Cart-Level discounts. This is controlled by the **`Allow Stacking with Other Discount Campaigns`** setting in the **Settings → Cart Settings** tab.
 
-- A **Scheduled** sale offers 10% off (new price: $90).
-- A **Quantity** discount for buying 3+ offers 20% off.
+![Cart Stacking Options](./../public/settings-cart-stacking.png)
 
-If stacking is **ON** and the customer buys 3, the final price will be **$72**.
-($100 -> $90 from the scheduled sale -> $72 from the quantity discount applied to the $90 price).
+#### If Stacking is OFF (Default)
+
+The system performs a final competition:
+
+- It compares the winning **Product-Level discount** against the **Cart-Level discount**.
+- It applies **only the single, overall best discount** to the product. The other is ignored.
+
+#### If Stacking is ON
+
+Discounts are applied in a specific, layered "waterfall" order:
+
+1.  **First, the winning Product-Level discount is applied.** (The best of all `Scheduled` and `Early Bird` campaigns).
+2.  **Then, the Cart-Level discount is applied** to the _new, already-discounted price_ from the first step.
+
+::: tip Stacking Example
+Imagine a $100 product that qualifies for two campaigns, and stacking is **ON**:
+
+- A **Scheduled** sale (Product-Level) offers 10% off.
+- A **Quantity** discount (Cart-Level) for buying 3+ offers 20% off.
+
+If a customer buys 3 of this item, the discounts will stack:
+
+1.  The Product-Level discount is applied first: `$100 - 10% = $90`.
+2.  The Cart-Level discount is then applied to the new subtotal: `$90 - 20% = $72`.
+
+The final price per item will be **$72**.
+:::
+
+## The BOGO Exception
+
+::: warning
+**BOGO (Buy X Get X)** campaigns operate **independently** from the logic described above. They do not compete for the "best discount" and do not stack with Product-Level or Cart-Level campaigns.
+
+A BOGO rule is a simple check: if the conditions are met in the cart (e.g., customer has 3 of an item for a "Buy 2 Get 1 Free" deal), the discount for the free item is applied.
 :::
 
 Understanding these core rules will help you build complex and predictable discount strategies for your store.

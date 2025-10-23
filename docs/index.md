@@ -12,9 +12,9 @@ hero:
     - theme: brand
       text: Get Started
       link: /installation
-    - theme: alt
-      text: View All Features
-      link: /core-concepts/understanding-the-engine
+    # - theme: alt
+    #   text: View All Features
+    #   link: /core-concepts/understanding-the-engine
 ---
 
 ## What is CampaignBay?
@@ -27,10 +27,10 @@ This documentation will guide you through every feature, from installing the plu
 
 ## Key Features
 
-- **Multiple Campaign Types:** Create Scheduled Sales for traditional promotions, Quantity-Based Tiered Pricing to encourage bulk orders, and exciting Early Bird offers to drive urgency.
-- **Advanced Targeting:** Apply discounts to your entire store, specific product categories, individual products, or even product tags.
+- **Multiple Campaign Types:** Create classic **Scheduled Sales**, tiered **Quantity Discounts**, urgency-driven **Early Bird** offers, and popular **BOGO (Buy X Get X)** deals.
+- **Advanced Targeting:** Apply discounts to your entire store, specific product categories, or individual products. Use powerful exclusion rules for even more control.
 - **Full Scheduling & Automation:** Set specific start and end dates for your campaigns and let our reliable, automated system handle activation and expiration using a robust WP-Cron and failsafe mechanism.
-- **Intelligent Cart Logic:** Configure powerful rules for how your discounts interact with each other and with native WooCommerce coupons.
+- **Intelligent Stacking Logic:** Configure powerful rules for how your discounts interact with each other and with native WooCommerce coupons.
 - **Actionable Dashboard:** Get an instant, data-rich overview of your campaign performance with beautiful charts and key metrics.
 - **Modern & Compatible:** Built on a modern technology stack that is fully compatible with both classic and new block-based WooCommerce themes.
 

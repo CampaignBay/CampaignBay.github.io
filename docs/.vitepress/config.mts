@@ -127,6 +127,7 @@ export default defineConfig({
               { text: 'Scheduled Discounts', link: '/campaigns/scheduled-discounts' },
               { text: 'Quantity Discounts', link: '/campaigns/quantity-discounts' },
               { text: 'Early Bird Discounts', link: '/campaigns/early-bird-discounts' },
+              { text: 'BOGO Discounts', link: '/campaigns/bogo-discounts' },
             ]
           }
         ]
@@ -152,8 +153,8 @@ export default defineConfig({
 
     // Enhanced footer
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2024-present WP Anchor Bay'
+      message: 'Released under the GPL-3.0 License.',
+      copyright: 'Copyright © 2025-present WP Anchor Bay'
     },
 
     // Enhanced site title

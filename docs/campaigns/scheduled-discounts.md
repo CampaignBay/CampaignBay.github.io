@@ -10,38 +10,29 @@ This is the perfect tool for running classic sales events like:
 
 This guide will walk you through creating a Scheduled Discount step by step.
 
-## Step 1: Select Campaign Type and Status
+## Step 1: Set Core Campaign Details
 
-To begin, navigate to **Campaigns → Add Campaign**. The first step is to define the campaign's core logic and its initial state.
+To begin, navigate to **CampaignBay → Add Campaign**. The first step is to define the campaign's name, its core logic, and its initial state.
 
-![Select Campaign Type](./../public/scheduled-type.png)
+![Core Campaign Details](./../public/scheduled-core-details.png)
 
-- **SELECT DISCOUNT TYPE:** For this guide, choose **`Scheduled Discount`** from the dropdown menu. This configures the campaign to apply a simple, direct price reduction.
+- **Campaign Title:** Give your campaign a clear and descriptive name. This is essential for identifying it later in the "All Campaigns" list. Example: `Summer Weekend Sale`.
 
-![Select Campaign Status](./../public/scheduled-status.png)
+- **Select Discount Type:** For this guide, choose **`Scheduled Discount`** from the dropdown menu. This configures the campaign to apply a simple, direct price reduction.
 
-- **SELECT STATUS:** This determines the state of your campaign upon saving.
+- **Select Status:** This determines the state of your campaign upon saving.
   - **Active:** The campaign will be live as soon as its start time is reached (or immediately if no future start time is set).
   - **Inactive:** The campaign will be saved as a draft and will not run until you manually activate it later.
-  - **Scheduled:** This status is automatically set by the system if you choose "Active" and set a start date that is in the future.
 
 ::: tip
-For scheduled campaigns, it's best to set the Status to **Active**. The system will intelligently set it to **Scheduled** if your start date is in the future.
+For scheduled campaigns, it's best to set the Status to **Active**. The system will intelligently change the status to **Scheduled** if you set a start date that is in the future.
 :::
 
-## Step 2: Set the Campaign Title
-
-Next, give your campaign a clear and descriptive name. This is essential for identifying it later.
-
-![Set Campaign Title](./../public/scheduled-title.png)
-
-- **CAMPAIGN TITLE:** Enter a name for your campaign. This title is important as it will be visible to you in the "All Campaigns" list and may also be shown to customers in the cart totals section. Example: `Summer Weekend Sale`.
-
-## Step 3: Set the Discount Target
+## Step 2: Set the Discount Target
 
 This crucial step defines which products in your store are eligible for the discount.
 
-![Discount Target Dropdown](./../public/scheduled-target.png)
+![Discount Target](./../public/scheduled-target.png)
 
 The **DISCOUNT TARGET** dropdown provides powerful options to control the scope of your campaign, such as applying it to the entire store, specific products, or categories.
 
@@ -51,27 +42,36 @@ The "Discount Target" setting is a powerful feature shared by all campaign types
 **[Read the Full Guide: Targeting & Conditions &rarr;](../core-concepts/targeting-and-conditions.md)**
 :::
 
-## Step 4: Define the Discount Value
+## Step 3: Define the Discount Value
 
 This is where you set the actual discount amount the customer will receive.
 
-![Define the Discount Value](./../public/scheduled-value.png)
+![Discount Value](./../public/scheduled-value.png)
 
 1.  **Choose the Mode:** Use the toggle button to select between:
 
     - **Percentage %:** The discount will be a percentage of the product's price (e.g., `20%`).
     - **Currency ৳:** The discount will be a fixed amount deducted from the product's price (e.g., `5.00৳`).
 
-2.  **Enter Value:** In the input field below, enter the numeric value for your discount (e.g., `20` for a 20% discount).
+2.  **Enter Value:** In the input field, enter the numeric value for your discount (e.g., `20` for a 20% discount).
 
-## Step 5: Set the Campaign Duration
+## Step 4: Set Other Configurations (Optional)
+
+This section provides additional rules for your campaign.
+
+![Other Configurations](./../public/scheduled-other-configs.png)
+
+- **Exclude Sale Items:** Check this box if you do not want this campaign's discount to apply to products that are already on sale in WooCommerce. This is useful for preventing "double discounting."
+
+- **Enable Usage Limit:** Check this box to set a maximum number of times this campaign can be used across your entire store. Once the limit is reached, the campaign will automatically become inactive.
+
+## Step 5: Set the Schedule (Optional)
 
 For a Scheduled Discount, setting the duration is essential. This section controls when your campaign will automatically start and end.
 
-![Set the Campaign Duration](./../public/scheduled-duration.png)
+![Campaign Schedule](./../public/scheduled-schedule.png)
 
-- **Start Time / End Time:** Set the exact time of day for the campaign to activate and expire.
-- **Date:** Select the day, month, and year for the start and end dates.
+- **Start Time / End Time:** Use the date and time pickers to set the exact moment for the campaign to activate and expire.
 
 ::: tip Timezone Information
 All dates and times are based on the timezone you have configured in your main WordPress settings under **Settings → General → Timezone**. The system automatically handles all UTC conversions for you.
@@ -83,7 +83,17 @@ The status of your campaign is closely tied to the scheduling system, which uses
 **[Read the Full Guide: Scheduling & Automation &rarr;](../core-concepts/scheduling-and-automation.md)**
 :::
 
-## Step 6: Save the Campaign
+## Step 6: Define Display Configurations
+
+This optional section allows you to customize how the discount is communicated to the customer on the product page.
+
+![Display Configurations](./../public/scheduled-display-configs.png)
+
+- **Display As Regular Price:** This setting is for display purposes only and is less common for scheduled sales. It changes the visual price on the product page.
+
+- **Discount Message Format:** Enter a custom message to be displayed on the product page when this discount is active. You can use placeholders like `{percentage_off}` and `{amount_off}` which will be automatically replaced with the discount values.
+
+## Step 7: Save the Campaign
 
 Once you have configured all the options, click the **Save Campaign** button at the top right or the **Save Changes** button at the bottom of the page. After saving, you will be redirected back to the "All Campaigns" list, where you can see your new campaign.
 

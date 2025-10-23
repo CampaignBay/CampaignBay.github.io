@@ -14,48 +14,27 @@ An Early Bird discount is based on the number of **orders**, not the quantity of
 
 This guide will walk you through every field required to set up this campaign type.
 
----
+## Step 1: Set Core Campaign Details
 
-## Step 1: Select the Campaign Type
+To begin, navigate to **CampaignBay → Add Campaign**. The first step is to define the campaign's name, its core logic, and its initial state.
 
-To begin, navigate to **Campaigns → Add Campaign**. The first field determines the core logic of your new promotion.
+![Core Campaign Details for Early Bird Discount](./../public/early-bird-core-details.png)
 
-![Select EarlyBird Discount Type](./../public/early-bird-type.png)
+- **Campaign Title:** Give your campaign a clear and descriptive name. This is essential for identifying it later. Example: `New Product Launch Offer`.
 
-- **SELECT DISCOUNT TYPE:** From the dropdown menu, choose **`EarlyBird Discount`**. This will reveal the specific fields needed for a sales-based tiered campaign.
+- **Select Discount Type:** From the dropdown menu, choose **`EarlyBird Discount`**. This will reveal the specific fields needed for a sales-based tiered campaign.
 
-## Step 2: Set the Status
-
-This field controls the current state of your campaign.
-
-![Select Campaign Status](./../public/campaign-status.png)
-
-- **SELECT STATUS:**
+- **Select Status:**
   - **Active:** Choose this if you want the campaign to be live on your site (either immediately or on a future schedule).
-  - **Inactive:** Choose this to save the campaign as a draft. It will not be visible or active on your store until you edit it and change the status to `Active`.
-  - **Scheduled:** This status is automatically set by the system if you choose `Active` and set a future start date in the "Campaign Duration" section.
+  - **Inactive:** Choose this to save the campaign as a draft.
 
-::: info Learn More About Automation
-The status of your campaign is closely tied to the scheduling system, which uses WordPress Cron to automate activation and expiration.
-
-**[Read the Full Guide: Scheduling & Automation &rarr;](../core-concepts/scheduling-and-automation.md)**
-:::
-
-## Step 3: Set the Campaign Title
-
-Give your campaign a clear and descriptive name. This is essential for identifying it later.
-
-![Set Campaign Title](./../public/scheduled-title.png)
-
-- **CAMPAIGN TITLE:** Enter a name for your campaign. This title is important as it will be visible to you in the "All Campaigns" list and may also be shown to customers in the cart totals section. Example: `New Product Launch Offer`.
-
-## Step 4: Set the Discount Target
+## Step 2: Set the Discount Target
 
 This crucial step defines which products in your store are eligible for the early bird discount.
 
-![Set Discount Target](./../public/scheduled-target.png)
+![Discount Target](./../public/scheduled-target.png)
 
-- **DISCOUNT TARGET:** This setting determines the scope of your discount. You can apply the discount to your entire store, specific products, categories, or tags.
+The **DISCOUNT TARGET** dropdown provides powerful options to control the scope of your campaign, such as applying it to the entire store, specific products, or categories.
 
 ::: info Learn More About Targeting
 The "Discount Target" setting is a powerful feature shared by all campaign types. We've created a dedicated guide to explain all of its options and conditional fields in detail.
@@ -63,44 +42,70 @@ The "Discount Target" setting is a powerful feature shared by all campaign types
 **[Read the Full Guide: Targeting & Conditions &rarr;](../core-concepts/targeting-and-conditions.md)**
 :::
 
-## Step 5: Define Discount Tiers For First Sales
+## Step 3: Define Discount Tiers For First Sales
 
 This is the core of the Early Bird Discount. Here you will define the tiers based on the number of successful orders.
 
-![Define Early Bird Tiers](./../public/early-bird-tier.png)
+![Define Early Bird Tiers](./../public/early-bird-tiers.png)
 
-- **For First [X] Sales (Max Orders):** This is the core of the Early Bird rule. Enter the maximum number of successful orders that are eligible for this tier. For example, entering `100` means "for the first 100 sales".
-- **give (Value):** The numeric value of the discount.
+- **For First:** This defines the range of sales for this tier. The system automatically handles the ranges based on the order of your tiers.
+- **Sales (e.g., 1 - 10):** Enter the upper limit of sales for this tier. For example, entering `10` here means this tier applies to the first 10 sales.
+- **give:** The numeric value of the discount.
 - **% / ৳ (Mode):** The type of discount to apply (Percentage or Fixed Currency amount).
 - **+ Add another tier:** Click this to add multiple levels of Early Bird offers.
 
 ### How Tiers Work
 
-The tiers work sequentially. The system checks them in order based on their "Max Orders" value.
+The tiers work sequentially from top to bottom.
 
 **Example Tier Setup:**
 
-- **Tier 1:** For First `100` Sales, give `50` `%`
-- **Tier 2:** For First `250` Sales, give `25` `%`
+- **Tier 1:** For First `Sales (1 - 100)`, give `50` `%`
+- **Tier 2:** For First `Sales (1 - 250)`, give `25` `%`
 
 **In this scenario:**
 
 - Orders 1 through 100 will receive a 50% discount.
 - Orders 101 through 250 will receive a 25% discount.
-- Order 251 and beyond will receive no discount.
+- Order 251 and beyond will receive no discount from this campaign.
 
-## Step 6: Set the Campaign Duration (Optional)
+## Step 4: Set Other Configurations (Optional)
 
-An Early Bird discount can be run immediately or, more powerfully, **scheduled** for a future date.
+This section provides additional rules for your campaign.
 
-![Set the Campaign Duration](./../public/scheduled-duration.png)
+![Other Configurations](./../public/scheduled-other-configs.png)
 
-- **To run the campaign immediately:** Leave the "Enable Scheduling" toggle OFF. The usage counter will begin tracking sales as soon as you save the campaign.
-- **To run the campaign for a specific period:** Turn the "Enable Scheduling" toggle ON and set your desired **Start Date**, **End Date**, and times.
+- **Exclude Sale Items:** Check this box if you do not want this campaign's discount to apply to products that are already on sale in WooCommerce. This is useful for preventing "double discounting."
 
-::: tip Use Case for Scheduling
-Scheduling an Early Bird offer is perfect for a product launch or a Black Friday promotion. You can build hype for days or weeks, and the usage counter will **only begin tracking sales after the scheduled start time**.
+- **Enable Usage Limit:** Check this box to set a maximum number of times this campaign can be used across your entire store. Once the limit is reached, the campaign will automatically become inactive.
+
+## Step 5: Set the Schedule (Optional)
+
+For a Scheduled Discount, setting the duration is essential. This section controls when your campaign will automatically start and end.
+
+![Campaign Schedule](./../public/scheduled-schedule.png)
+
+- **Start Time / End Time:** Use the date and time pickers to set the exact moment for the campaign to activate and expire.
+
+::: tip Timezone Information
+All dates and times are based on the timezone you have configured in your main WordPress settings under **Settings → General → Timezone**. The system automatically handles all UTC conversions for you.
 :::
+
+::: info Learn More About Automation
+The status of your campaign is closely tied to the scheduling system, which uses WordPress Cron to automate activation and expiration.
+
+**[Read the Full Guide: Scheduling & Automation &rarr;](../core-concepts/scheduling-and-automation.md)**
+:::
+
+## Step 6: Define Display Configurations (Optional)
+
+This section allows you to customize how the discount is communicated to the customer on the product page.
+
+![Display Configurations](./../public/scheduled-display-configs.png)
+
+- **Display As Regular Price:** This setting is for display purposes only. It changes the visual price on the product page.
+
+- **Discount Message Format:** Enter a custom message to be displayed on the product page when this discount is active. You can use placeholders like `{percentage_off}` and `{amount_off}`.
 
 ## Step 7: Save the Campaign
 
@@ -108,6 +113,6 @@ Once you have configured all the options, click the **Save Campaign** button at 
 
 ## Next Steps
 
-You've now learned about all the campaign types. It's time to understand the global settings that control your entire discount system.
+Next, learn how to create campaigns that offer "Buy One, Get One" style deals.
 
-- **[Configuring the Settings &rarr;](../settings.md)**
+- **[Creating a BOGO Discount &rarr;](./bogo-discounts.md)**

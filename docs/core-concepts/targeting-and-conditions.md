@@ -50,6 +50,42 @@ Let's explore each option in detail.
   - **Unchecked (Default):** The discount will apply **only** to products within the categories you selected.
   - **Checked:** The discount will apply to **all products in your store EXCEPT** for those in the categories you selected.
 
+## Inverting the Logic: The 'Exclude Items' Checkbox
+
+For both "By Product" and "By Product Category" targeting, you will see an **`Exclude Items`** checkbox. This is a powerful feature that completely inverts the logic of your selection, allowing you to create store-wide discounts with a few specific exceptions.
+
+![The Exclude Items checkbox](./../public/targeting-exclude-items.png)
+
+#### Default Behavior (Exclude Items is UNCHECKED)
+
+- The discount will apply **ONLY** to the items you have selected in the box.
+- This is an **"include list"**. All other products are ignored.
+
+#### Inverted Behavior (Exclude Items is CHECKED)
+
+- The discount will apply to **EVERYTHING in your store EXCEPT** for the items you have selected in the box.
+- This is an **"exclude list"**.
+
+### Practical Use Cases for "Exclude Items"
+
+**Example 1: Store-wide Sale, Excluding a New Product**
+
+- **Goal:** Run a 15% off sale on everything, but keep your brand new, full-priced flagship product excluded.
+- **Setup:**
+  1.  **Discount Target:** `By Product`
+  2.  **Select Products:** Search for and select your "Flagship Product".
+  3.  **Exclude Items:** **Check this box.**
+- **Result:** The 15% discount will apply to every product in your store _except_ the flagship product.
+
+**Example 2: Discount All Clothing, Except for "New Arrivals"**
+
+- **Goal:** Put all clothing on sale, but exclude the items in your "New Arrivals" category.
+- **Setup:**
+  1.  **Discount Target:** `By Product Category`
+  2.  **Select Categories:** Search for and select the "New Arrivals" category.
+  3.  **Exclude Items:** **Check this box.**
+- **Result:** The discount will apply to every product in your store _except_ for those in the "New Arrivals" category.
+
 ## Next Steps
 
 Now that you understand how to target your campaigns, let's explore the final core concept that powers the plugin.

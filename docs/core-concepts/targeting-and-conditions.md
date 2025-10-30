@@ -85,9 +85,3 @@ For both "By Product" and "By Product Category" targeting, you will see an **`Ex
   2.  **Select Categories:** Search for and select the "New Arrivals" category.
   3.  **Exclude Items:** **Check this box.**
 - **Result:** The discount will apply to every product in your store _except_ for those in the "New Arrivals" category.
-
-## Next Steps
-
-Now that you understand how to target your campaigns, let's explore the final core concept that powers the plugin.
-
-- **[Learn about the Discount Engine &rarr;](./understanding-the-engine.md)**

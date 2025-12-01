@@ -51,7 +51,7 @@ This is the core of the Early Bird Discount. Here you will define the tiers base
 - **For First:** This defines the range of sales for this tier. The system automatically handles the ranges based on the order of your tiers.
 - **Sales (e.g., 1 - 10):** Enter the upper limit of sales for this tier. For example, entering `10` here means this tier applies to the first 10 sales.
 - **give:** The numeric value of the discount.
-- **% / ৳ (Mode):** The type of discount to apply (Percentage or Fixed Currency amount).
+- **% / $ (Mode):** The type of discount to apply (Percentage or Fixed Currency amount).
 - **+ Add another tier:** Click this to add multiple levels of Early Bird offers.
 
 ### How Tiers Work

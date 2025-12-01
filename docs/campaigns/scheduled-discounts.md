@@ -51,7 +51,7 @@ This is where you set the actual discount amount the customer will receive.
 1.  **Choose the Mode:** Use the toggle button to select between:
 
     - **Percentage %:** The discount will be a percentage of the product's price (e.g., `20%`).
-    - **Currency ৳:** The discount will be a fixed amount deducted from the product's price (e.g., `5.00৳`).
+    - **Currency \$:** The discount will be a fixed amount deducted from the product's price (e.g., `$5.00`).
 
 2.  **Enter Value:** In the input field, enter the numeric value for your discount (e.g., `20` for a 20% discount).
 

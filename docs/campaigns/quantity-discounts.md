@@ -49,12 +49,12 @@ You can create one or more tiers. Each tier has the following fields:
 - **Buy from:** The minimum quantity of an item a customer must have in their cart to qualify for this tier's discount.
 - **to:** The maximum quantity for this tier. **Leave this blank** for the final tier to mean "and up" (e.g., 11 or more).
 - **items, get:** The numeric value of the discount.
-- **% / ৳ (Mode):** The type of discount to apply.
+- **% / $ (Mode):** The type of discount to apply.
   - **Percentage (%):** A percentage discount calculated on the price of each item.
-  - **Currency (৳):** A fixed amount deducted from the price of **each individual item**.
+  - **Currency ($):** A fixed amount deducted from the price of **each individual item**.
 
 ::: warning Fixed Amount Logic
-When using a fixed discount (e.g., `5৳`), the discount is applied **per item**. If a customer buys 4 items that qualify, they will receive a 5৳ discount on all 4 items.
+When using a fixed discount (e.g., `$5`), the discount is applied **per item**. If a customer buys 4 items that qualify, they will receive a $5 discount on all 4 items.
 :::
 
 - **+ Add another tier:** Click this to add more pricing levels to your campaign.

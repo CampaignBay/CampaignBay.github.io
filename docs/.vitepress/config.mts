@@ -20,7 +20,7 @@ export default defineConfig({
       }
       
       img:hover {
-        opacity: 0.9;
+        opacity: 1.0;
       }
       
       /* Dark theme compatibility */
@@ -41,20 +41,27 @@ export default defineConfig({
     `],
     ['script', {}, `
       document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOMContentLoaded is defined');
         if (typeof mediumZoom !== 'undefined') {
+          console.log('mediumZoom is defined');
           mediumZoom('img', {
             background: 'var(--vp-c-bg)',
             scrollOffset: 0,
             margin: 24
           });
+        } else {
+          console.log('mediumZoom is not defined');
         }
       });
       
       // Re-initialize on route changes
       if (typeof window !== 'undefined') {
+        console.log('window is defined');
         let currentPath = window.location.pathname;
         const observer = new MutationObserver(function() {
+          console.log('observer is defined');
           if (window.location.pathname !== currentPath) {
+            console.log('window.location.pathname is defined: ', window.location.pathname);
             currentPath = window.location.pathname;
             setTimeout(function() {
               if (typeof mediumZoom !== 'undefined') {
@@ -65,6 +72,8 @@ export default defineConfig({
                 });
               }
             }, 100);
+          } else {
+            console.log('window.location.pathname is not defined');
           }
         });
         
@@ -72,6 +81,9 @@ export default defineConfig({
           childList: true,
           subtree: true
         });
+      } 
+        else {
+        console.log('window is not defined');
       }
     `]
   ],

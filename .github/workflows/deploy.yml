@@ -6,7 +6,7 @@ on:
   # Runs on pushes targeting the `main` branch. Change this to `master` if you're
   # using the `master` branch as the default branch.
   push:
-    branches: [1.0.0]
+    branches: [1.0.6]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -50,7 +50,7 @@ jobs:
       - name: Move artifacts to subfolder
         run: |
           mkdir temp_dist
-          mv docs/.vitepress/dist temp_dist/1.0.0
+          mv docs/.vitepress/dist temp_dist/1.0.6
           mkdir -p docs/.vitepress
           mv temp_dist docs/.vitepress/dist
       - name: Upload artifact
@@ -62,7 +62,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}1.0.0/
+      url: ${{ steps.deployment.outputs.page_url }}1.0.6/
     needs: build
     runs-on: ubuntu-latest
     name: Deploy

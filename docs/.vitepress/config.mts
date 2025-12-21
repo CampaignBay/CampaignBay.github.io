@@ -5,7 +5,7 @@ export default defineConfig({
   base: '/1.0.0/',
   title: "CampaignBay Documentation",
   description: "Comprehensive documentation for CampaignBay - Advanced WooCommerce Discount Campaigns",
-  
+
   // Enhanced head configuration
   head: [
     ['link', { rel: 'icon', href: '/logo-2.png' }],
@@ -81,7 +81,7 @@ export default defineConfig({
   themeConfig: {
     // Logo configuration
     logo: '/logo-2.png',
-    
+
     // Enhanced search
     search: {
       provider: 'local',
@@ -112,6 +112,14 @@ export default defineConfig({
     nav: [
       { text: '🏠 Home', link: '/' },
       { text: '🚀 Getting Started', link: '/installation' },
+      {
+        text: 'Version',
+        items: [
+          { text: 'Latest', link: 'https://campaignbay.github.io/' },
+          { text: '1.0.6', link: 'https://campaignbay.github.io/1.0.6/' },
+          { text: '1.0.0', link: 'https://campaignbay.github.io/1.0.0/' }
+        ]
+      },
     ],
 
     // Enhanced sidebar with better organization
@@ -174,7 +182,7 @@ export default defineConfig({
 
   // Enhanced appearance
   appearance: 'dark',
-  
+
   // Enhanced last updated
   lastUpdated: true,
 

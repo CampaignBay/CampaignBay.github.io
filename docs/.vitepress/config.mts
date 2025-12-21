@@ -129,9 +129,9 @@ export default defineConfig({
       { text: 'Introduction', link: '/installation' },
       { text: 'Dashboard', link: '/dashboard' },
       {
-        text: 'Campaigns', // This is now a collapsible group
+        text: 'Campaigns',
         items: [
-          { text: 'All Campaigns', link: '/campaigns/' }, // The main list view
+          { text: 'All Campaigns', link: '/campaigns/' },
           {
             text: 'Campaign Types',
             items: [

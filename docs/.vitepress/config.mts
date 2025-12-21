@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/1.0.0/',
   title: "CampaignBay Documentation",
   description: "Comprehensive documentation for CampaignBay - Advanced WooCommerce Discount Campaigns",
 
@@ -116,10 +115,10 @@ export default defineConfig({
         text: 'Version',
         items: [
           // use it for all branches
-          { text: 'Latest', link: '../', }, 
+          // { text: 'Latest', link: '../', }, 
           // use it for main branch
-          // { text: 'Latest', link: '/', },
-          // { text: '1.0.0', link: 'https://campaignbay.github.io/1.0.0/' }
+          { text: 'Latest', link: '/', },
+          { text: '1.0.0', link: 'https://campaignbay.github.io/1.0.0/' }
         ]
       },
     ],

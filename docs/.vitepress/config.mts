@@ -115,9 +115,11 @@ export default defineConfig({
       {
         text: 'Version',
         items: [
-          { text: 'Latest', link: 'https://campaignbay.github.io/' },
-          { text: '1.0.6', link: 'https://campaignbay.github.io/1.0.6/' },
-          { text: '1.0.0', link: 'https://campaignbay.github.io/1.0.0/' }
+          // use it for all branches
+          { text: 'Latest', link: '../', }, 
+          // use it for main branch
+          // { text: 'Latest', link: '/', },
+          // { text: '1.0.0', link: 'https://campaignbay.github.io/1.0.0/' }
         ]
       },
     ],

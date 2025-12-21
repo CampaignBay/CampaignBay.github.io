@@ -2,13 +2,11 @@ name: CampaignBay Docs Deployment
 
 on:
   push:
-    # This allows the workflow to run on ANY branch name (1.0.0, 1.0.6, etc.)
-    # You can restrict this later if you want.
-    branches:
-      - "*"
+    # Runs on any branch so you can deploy 1.0.0, 1.0.6, etc.
+    branches: 
+      - '*' 
 
 permissions:
-  # We need 'write' permission to push the code back to the gh-pages branch
   contents: write
 
 concurrency:
@@ -34,11 +32,19 @@ jobs:
       - name: Build with VitePress
         run: npm run docs:build
 
-      # THIS IS THE IMPORTANT PART
       - name: Deploy to GitHub Pages (Incremental)
+        id: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # The branch where the site lives
-          folder: docs/.vitepress/dist # The folder where VitePress builds to
-          target-folder: ${{ github.ref_name }} # Creates a folder named '1.0.6'
-          clean: false # FALSE = Do not delete other folders!
+          branch: gh-pages
+          folder: docs/.vitepress/dist
+          target-folder: ${{ github.ref_name }} # e.g. /1.0.6/
+          clean: false # Keeps old versions safe!
+
+      # 👇 THIS STEP PRINTS THE LINK FOR YOU
+      - name: 🔗 Print Deployment Link
+        run: |
+          echo "### 🚀 Deployment Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "Your documentation is live at:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "👉 **[https://campaignbay.github.io/${{ github.ref_name }}/](https://campaignbay.github.io/${{ github.ref_name }}/)**" >> $GITHUB_STEP_SUMMARY

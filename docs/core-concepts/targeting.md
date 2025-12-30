@@ -1,4 +1,4 @@
-# Core Concepts: Targeting & Conditions
+# Core Concepts: Targeting
 
 One of the most powerful features of CampaignBay is the ability to precisely control which products are eligible for a discount. The **Discount Target** setting, which appears on the "Add/Edit Campaign" screen, is the primary tool for defining this scope.
 

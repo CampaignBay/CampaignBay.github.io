@@ -121,16 +121,16 @@ export default defineConfig({
 
     // Enhanced navigation
     nav: [
-      { text: '🏠 Home', link: '/' },
-      { text: '🚀 Getting Started', link: '/installation' },
+      { text: 'Home', link: '/' },
+      { text: 'Getting Started', link: '/installation' },
       {
         text: 'Version',
         items: [
           // use it for all branches
-          // { text: 'Latest', link: '../', }, 
+          { text: 'Latest', link: '../' },
           // use it for main branch
-          { text: 'Latest', link: '/', },
-          { text: '1.0.0', link: 'https://campaignbay.github.io/1.0.0/' }
+          // { text: 'Latest', link: '/', },
+          { text: '1.0.0', link: 'https://campaignbay.github.io/1.0.0/',}
         ]
       },
     ],
@@ -161,7 +161,7 @@ export default defineConfig({
         items: [
           { text: 'The Discount Engine', link: '/core-concepts/understanding-the-engine' },
           { text: 'Scheduling & Automation', link: '/core-concepts/scheduling-and-automation' },
-          { text: 'Targeting & Conditions', link: '/core-concepts/targeting-and-conditions' },
+          { text: 'Targeting', link: '/core-concepts/targeting' },
         ]
       },
       { text: 'FAQ', link: '/faq' },
@@ -170,13 +170,16 @@ export default defineConfig({
 
     // Enhanced social links
     socialLinks: [
-      { icon: 'github', link: 'https://campaignbay.github.io/' }
+      // { icon: 'github', link: 'https://campaignbay.github.io/' },
+      { icon: 'linkedin', link: 'https://linkedin.com/company/wpanchorbay' },
+      { icon: 'youtube', link: 'https://youtube.com/@WPAnchorBay' },
+      { icon: 'facebook', link: 'https://facebook.com/wpanchorbay' },
     ],
 
     // Enhanced footer
     footer: {
-      message: 'Released under the GPL-3.0 License.',
-      copyright: 'Copyright © 2025-present WP Anchor Bay'
+      message: 'Released under the GPL-2.0 License.',
+      copyright: 'Copyright © 2025 WPAnchorBay'
     },
 
     // Enhanced site title

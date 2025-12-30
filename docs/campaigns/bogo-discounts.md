@@ -34,7 +34,7 @@ The **DISCOUNT TARGET** dropdown provides options to apply the offer to your ent
 ::: info Learn More About Targeting
 The "Discount Target" setting is a powerful feature shared by all campaign types. We've created a dedicated guide to explain all of its options and conditional fields in detail.
 
-**[Read the Full Guide: Targeting & Conditions &rarr;](../core-concepts/targeting-and-conditions.md)**
+**[Read the Full Guide: Targeting &rarr;](../core-concepts/targeting.md)**
 :::
 
 ## Step 3: Define the BOGO Rule
@@ -54,7 +54,37 @@ To create a "Buy 2, Get 1 Free" offer, you would set:
 
 A customer would need to add 3 of the same item to their cart to receive the 3rd one for free.
 
-## Step 4: Set Other Configurations (Optional)
+
+## Step 4: Set Conditions (Optional)
+
+This section allows you to define specific rules that must be met for the discount to apply.
+
+![Conditions Empty](./../public/scheduled-conditions-empty.png)
+
+1.  **Add New Condition:** Click the dropdown to select a condition type. Currently, **User Role** is available.
+
+    ![Conditions Dropdown](./../public/scheduled-conditions-dropdown.png)
+
+2.  **Match Type:** This setting controls how multiple conditions interact with each other.
+
+    - **Match Any:** The discount applies if _at least one_ of the conditions is met.
+
+      - _Example:_ If you set "User Role: Customer" OR "User Role: Subscriber", anyone with either role gets the discount.
+        ![Match Any](./../public/scheduled-conditions-match-any.png)
+
+    - **Match All:** The discount applies only if _all_ defined conditions are met simultaneously.
+      - _Example:_ If you set "User Role: VIP" AND "Cart Total > $100", the user must match both to qualify.
+        ![Match All](./../public/scheduled-conditions-match-all.png)
+
+3.  **Configure Condition:** Once a condition is added (e.g., User Role), select the specific roles or criteria.
+
+    ![Conditions Full](./../public/scheduled-conditions-full.png)
+
+::: info Future Updates
+We are actively working on adding more condition types such as Cart Total and more. Stay tuned!
+:::
+
+## Step 5: Set Other Configurations (Optional)
 
 This section provides additional rules for your campaign.
 
@@ -64,7 +94,7 @@ This section provides additional rules for your campaign.
 
 - **Enable Usage Limit:** Check this box to set a maximum number of times this campaign can be used across your entire store. Once the limit is reached, the campaign will automatically become inactive.
 
-## Step 5: Set the Schedule (Optional)
+## Step 6: Set the Schedule (Optional)
 
 For a Scheduled Discount, setting the duration is essential. This section controls when your campaign will automatically start and end.
 
@@ -82,7 +112,7 @@ The status of your campaign is closely tied to the scheduling system, which uses
 **[Read the Full Guide: Scheduling & Automation &rarr;](../core-concepts/scheduling-and-automation.md)**
 :::
 
-## Step 6: Define Display Configurations
+## Step 7: Define Display Configurations
 
 This section is unique to BOGO campaigns and controls how the offer is communicated and applied.
 
@@ -103,7 +133,7 @@ This section is unique to BOGO campaigns and controls how the offer is communica
 
 - **Cart Page Message Location:** Choose where the cart message should appear (e.g., next to the line item name).
 
-## Step 7: Save the Campaign
+## Step 8: Save the Campaign
 
 Once you have configured all the options, click the **Save Campaign** button. You will be redirected to the "All Campaigns" list where you can see your new BOGO offer.
 

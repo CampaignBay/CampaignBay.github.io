@@ -63,4 +63,4 @@ This built-in failsafe guarantees that your campaign statuses will always be acc
 
 Now that you understand how scheduling works, let's explore the powerful targeting options available for all campaign types.
 
-- **[Learn about Targeting & Conditions &rarr;](./targeting-and-conditions.md)**
+- **[Learn about Targeting &rarr;](./targeting.md)**

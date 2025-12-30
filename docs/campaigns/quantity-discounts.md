@@ -67,7 +67,6 @@ Here is an example of a multi-level discount for a product:
 - **Tier 2:** Buy from `6` to `10` items, get `15` `%`
 - **Tier 3:** Buy from `11` to ``items, get`20` `%`
 
-
 ## Step 4: Set Conditions (Optional)
 
 This section allows you to define specific rules that must be met for the discount to apply.
@@ -89,7 +88,12 @@ This section allows you to define specific rules that must be met for the discou
       - _Example:_ If you set "User Role: VIP" AND "Cart Total > $100", the user must match both to qualify.
         ![Match All](./../public/scheduled-conditions-match-all.png)
 
-3.  **Configure Condition:** Once a condition is added (e.g., User Role), select the specific roles or criteria.
+3.  **Example: Restrict to VIP Users:**
+    In this example, we want to make this campaign exclusive to our "VIP" members.
+
+    - Select **User Role** from the condition dropdown.
+    - Choose **VIP** from the list of roles.
+    - Now, this discount will **only** apply to logged-in users with the **VIP** role. Everyone else (including guests) will see the regular price.
 
     ![Conditions Full](./../public/scheduled-conditions-full.png)
 
